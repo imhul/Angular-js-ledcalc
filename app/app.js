@@ -1,4 +1,6 @@
-var app = angular.module('CalcApp', []);
+var CalcApp = angular.module('CalcApp', ['rzModule']);
+
+// var sliderApp = angular.module('sliderApp', ['rzModule']);
 
 // app.config(function ($routeProvider) {
 //   $routeProvider

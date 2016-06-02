@@ -2,105 +2,142 @@
 <html>
 
 <head>
-    <link href="assets/css/uikit.almost-flat.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/materialize.min.css" rel="stylesheet" />
     <link href="assets/css/theme.css" rel="stylesheet" />
 
     <!-- Include the core AngularJS library -->
     <script src="assets/js/angular.min.js"></script>
 
-    <!-- Include the AngularJS routing library -->
-    <!-- <script src="assets/js/angular-route.min.js"></script> -->
-
-    <!-- Include the UIKit library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="assets/js/uikit.min.js"></script>
+    <!-- Include accessory library -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+    <script src="assets/js/slider.min.js"></script>
 </head>
 
 <body ng-app="CalcApp">
 
-    <header class="uk-navbar uk-margin-bottom">
-        <div class="header">
-            <a href="http://ekta.ua/" class="uk-navbar-brand">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="http://ekta.ua/" class="brand-logo left">
                 <img class="logo" src="assets/img/logo.png" width="142">
             </a>
-            <div class="uk-navbar-content uk-navbar-center">
-                <span class="uk-h2">LED Calc</span>
+            <h2 class="brand-logo center">LED Calc</h2>
+            <div class="brand-logo right buttons">
+                <a class="waves-effect waves-light btn">Print</a>
+                <a href="http://ekta.com.ua/en/contacts" class="waves-effect waves-light btn">Get a quote</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="uk-container" ng-controller="HomeController">
-
-        <div class="uk-grid">
-
-            <div style="height:400px;" class="uk-width-1-4 uk-overflow-container">
-                <article class="uk-comment" ng-repeat="display in displays" ng-click>
-                    <header class="uk-comment-header">
-                        <img class="uk-comment-avatar" ng-src="{{ display.url }}" alt="led display {{ display.name }}">
-                        <h2 class="uk-comment-title">{{ display.name }}</h2>
-                        <div class="uk-comment-meta">location: {{ display.location }}</div>
-                        <div class="uk-comment-meta">size: {{ display.horizontalResolution }} x {{ display.verticalResolution }} px</div>
-                        <div class="uk-comment-meta">pixel pitch: {{ display.pixelPitch }}</div>
-                    </header>
-                </article>
-            </div>
-
-            <div class="uk-width-3-4">
-                <div class="uk-grid">
-                    <div class="uk-width-1-2">
-                        <form class="uk-form" data-uk-margin>
-
-                            <div>
-                                <label>Location
-                                    <select class="uk-form-success">
-                                        <option>All</option>
-                                        <option>Indoor</option>
-                                        <option>Outdoor</option>
-                                    </select>
-                                </label>
-
-                                <label>Application
-                                    <select class="uk-form-success">
-                                        <option>All</option>
-                                        <option>Fixed</option>
-                                        <option>Rental</option>
-                                    </select>
+    <main class="container row" ng-controller="MainController">
+        <!-- Tune -->
+        <div class="col s12 l4">
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="medium material-icons">tune</i>Tune</div>
+                    <div class="collapsible-body">
+                        <form class="container tune collection" action="#">
+                            <div class="switch collection-item">
+                                <label>Indoor
+                                    <input type="checkbox">
+                                    <span class="lever"></span> Outdoor
                                 </label>
                             </div>
-
-                            <div>
-                                <select class="uk-form-success">
-                                    <option>Tiles vertical</option>
-                                    <option>Aspect ratio</option>
-                                    <option>Height</option>
-                                </select>
+                            <div class="switch collection-item">
+                                <label>Fixed
+                                    <input type="checkbox">
+                                    <span class="lever"></span> Rental
+                                </label>
                             </div>
-                            <div>
-                                <select class="uk-form-success">
-                                    <option>Tiles horizontal</option>
-                                    <option>Width</option>
-                                    <option>Surface</option>
-                                    <option>Diagonal</option>
-                                </select>
-                            </div>
-                            <div>
+                            <div class="switch collection-item">
                                 <label>
-                                    <input type="checkbox"> metric (m)
-                                    <input type="checkbox"> imperial (ft)
+                                    metric (m)
+                                    <input type="checkbox">
+                                    <span class="lever"></span> imperial (ft)
                                 </label>
                             </div>
-
+                            <div class="collection-item" ng-controller="verticalSliderController as vm">
+                                <!-- <p>Tiles vertical: {{vm.priceSlider.value}}</p> -->
+                                <rzslider rz-slider-model="vm.verticalSlider.value" rz-slider-options="vm.verticalSlider.options"></rzslider>
+                            </div>
+                            <div class="collection-item" ng-controller="horizontalSliderController as vm">
+                                <!-- <p>Tiles horizontal: {{vm.priceSlider.value}}</p> -->
+                                <rzslider rz-slider-model="vm.horizontalSlider.value" rz-slider-options="vm.horizontalSlider.options"></rzslider>
+                            </div>
                         </form>
                     </div>
-                    <div class="uk-width-1-2"></div>
-                </div>
-                <div class="preview">
-                    <table></table>
-                </div>
-            </div>
-
+                </li>
+            </ul>
         </div>
+        <!-- Select model -->
+
+        <div class="col s12 l4">
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="medium material-icons">extension</i>Select model</div>
+                    <div class="collapsible-body scrollable-box">
+                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in displays">
+                            <header>
+                                <!-- <header class="" ng-click="addSuccess = 'uk-form-success'" ng-class="addSuccess"> -->
+                                <img class="uk-comment-avatar" ng-src="{{ display.url }}" alt="led display {{ display.name }}">
+                                <h2 class="uk-comment-title">{{ display.name }}</h2>
+                                <div class="uk-comment-meta">location: {{ display.location }}</div>
+                                <div class="uk-comment-meta">size: {{ display.horizontalResolution }} x {{ display.verticalResolution }} px</div>
+                                <div class="uk-comment-meta">pixel pitch: {{ display.pixelPitch }}</div>
+                            </header>
+                        </article>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Result -->
+
+        <div class="col s12 l4">
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="medium material-icons">apps</i>Result</div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col s6">
+                                <p class="right-align">Screen resolution</p>
+                                <p class="right-align">Screen dimensions</p>
+                                <p class="right-align">Screen diagonal</p>
+                                <p class="right-align">Aspect ratio</p>
+                                <p class="right-align">Total LED tiles</p>
+                                <p class="right-align">Surface</p>
+                                <p class="right-align">Max. power consumption</p>
+                                <p class="right-align">Typ. power consumption</p>
+                                <p class="right-align">Weight without steel</p>
+                                <p class="right-align">Optimal viewing distance</p>
+                            </div>
+                            <div class="col s6">
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                                <p>{{ }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Preview -->
+
+        <div class="col s12 card-panel hoverable z-depth-1">
+            <i class="medium material-icons">remove_red_eye</i>
+            <table class="responsive-table"></table>
+        </div>
+
     </main>
 
     <footer></footer>
@@ -109,7 +146,7 @@
     <script src="app/app.js"></script>
 
     <!-- Controllers -->
-    <script src="app/controllers/HomeController.js"></script>
+    <script src="app/controllers/MainController.js"></script>
     <!-- <script src="app/controllers/PhotoController.js"></script> -->
 
     <!-- Services -->
