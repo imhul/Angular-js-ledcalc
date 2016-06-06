@@ -23,6 +23,8 @@
                         }
                     },
                     vertical: {
+                        min: 1,
+                        max: 100,
                         value: 10,
                         options: {
                             floor: 1,

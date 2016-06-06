@@ -8,8 +8,17 @@ angular.module('CalcApp').service('Calculator', function () {
         slider_horizontal: 100
     };
 
-    this.calculate = function () {
+    this.calculate = function ($scope) {
         // математика
+        $scope.screenResolution = display.horizontalResolution*slider_horizontal + ' x ' + display.verticalResolution*slider_vertical;
+
+        if((wallWidth/wallHeight) > 1.6) {
+          $scope.ratio = "16:9";
+        } else {
+          $scope.ratio = "4:3";
+        }
+
+
 
         console.log('физика-хуизика...');
     }

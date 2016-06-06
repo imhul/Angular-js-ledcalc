@@ -34,6 +34,12 @@
     </nav>
 
     <main class="container row" ng-controller="MainController as vm">
+        <!-- Preview -->
+
+        <div class="col s12 card-panel hoverable z-depth-1">
+            <i class="medium material-icons">remove_red_eye</i>
+            <table class="responsive-table"></table>
+        </div>
         <!-- Tune -->
         <div class="col s12 l4">
             <ul class="collapsible popout" data-collapsible="accordion">
@@ -52,9 +58,9 @@
                 <li>
                     <div class="collapsible-header"><i class="medium material-icons">extension</i>{{ vm.calc_data.is_rental ? 'Rental' : 'Fixed' }} models</div>
                     <div class="collapsible-body scrollable-box">
-                      <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays">
-                        <models></models>
-                      </article>
+                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays">
+                            <models></models>
+                        </article>
                     </div>
                 </li>
             </ul>
@@ -70,12 +76,6 @@
                     </div>
                 </li>
             </ul>
-        </div>
-        <!-- Preview -->
-
-        <div class="col s12 card-panel hoverable z-depth-1">
-            <i class="medium material-icons">remove_red_eye</i>
-            <table class="responsive-table"></table>
         </div>
 
     </main>
