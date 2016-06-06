@@ -33,42 +33,14 @@
         </div>
     </nav>
 
-    <main class="container row" ng-controller="MainController">
+    <main class="container row" ng-controller="MainController as vm">
         <!-- Tune -->
         <div class="col s12 l4">
             <ul class="collapsible popout" data-collapsible="accordion">
                 <li>
                     <div class="collapsible-header"><i class="medium material-icons">tune</i>Tune</div>
                     <div class="collapsible-body">
-                        <form class="container tune collection" action="#">
-                            <div class="switch collection-item">
-                                <label>Indoor
-                                    <input type="checkbox">
-                                    <span class="lever"></span> Outdoor
-                                </label>
-                            </div>
-                            <div class="switch collection-item">
-                                <label>Fixed
-                                    <input type="checkbox">
-                                    <span class="lever"></span> Rental
-                                </label>
-                            </div>
-                            <div class="switch collection-item">
-                                <label>
-                                    metric (m)
-                                    <input type="checkbox">
-                                    <span class="lever"></span> imperial (ft)
-                                </label>
-                            </div>
-                            <div class="collection-item" ng-controller="verticalSliderController as vm">
-                                <!-- <p>Tiles vertical: {{vm.priceSlider.value}}</p> -->
-                                <rzslider rz-slider-model="vm.verticalSlider.value" rz-slider-options="vm.verticalSlider.options"></rzslider>
-                            </div>
-                            <div class="collection-item" ng-controller="horizontalSliderController as vm">
-                                <!-- <p>Tiles horizontal: {{vm.priceSlider.value}}</p> -->
-                                <rzslider rz-slider-model="vm.horizontalSlider.value" rz-slider-options="vm.horizontalSlider.options"></rzslider>
-                            </div>
-                        </form>
+                        <controls></controls>
                     </div>
                 </li>
             </ul>
@@ -80,7 +52,7 @@
                 <li>
                     <div class="collapsible-header"><i class="medium material-icons">extension</i>Select model</div>
                     <div class="collapsible-body scrollable-box">
-                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in displays">
+                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays">
                             <header>
                                 <!-- <header class="" ng-click="addSuccess = 'uk-form-success'" ng-class="addSuccess"> -->
                                 <img class="uk-comment-avatar" ng-src="{{ display.url }}" alt="led display {{ display.name }}">
@@ -115,9 +87,9 @@
                                 <p class="right-align">Optimal viewing distance</p>
                             </div>
                             <div class="col s6">
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
+                                <p>{{ vm.calc_data.is_outdoor && 'Outoor' || 'Indoor' }}</p>
+                                <p>{{ vm.calc_data.is_rental ? 'Rental' : 'Fixed' }}</p>
+                                <p>{{ vm.calc_data.is_imperial ? 'Imperial' : 'Metric' }}</p>
                                 <p>{{ }}</p>
                                 <p>{{ }}</p>
                                 <p>{{ }}</p>
@@ -144,13 +116,15 @@
 
     <!-- Modules -->
     <script src="app/app.js"></script>
+    <script src="app/calculator/calculator.service.js"></script>
+    <script src="app/calculator/controls/controls.directive.js"></script>
 
     <!-- Controllers -->
     <script src="app/controllers/MainController.js"></script>
     <!-- <script src="app/controllers/PhotoController.js"></script> -->
 
     <!-- Services -->
-    <script src="app/services/getModels.js"></script>
+    <script src="app/services/displays.js"></script>
 
 </body>
 

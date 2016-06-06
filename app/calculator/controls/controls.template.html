@@ -1,0 +1,31 @@
+<div>
+<div class="container tune collection" ng-form="parameters.form_of_stuff">
+    <div class="switch collection-item">
+        <label>Indoor
+            <input type="checkbox" ng-model="vm.calc_data.is_outdoor">
+            <span class="lever"></span> Outdoor
+        </label>
+    </div>
+    <div class="switch collection-item">
+        <label>Fixed
+            <input type="checkbox" ng-model="vm.calc_data.is_rental">
+            <span class="lever"></span> Rental
+        </label>
+    </div>
+    <div class="switch collection-item">
+        <label>
+            metric (m)
+            <input type="checkbox" ng-model="vm.calc_data.is_imperial">
+            <span class="lever"></span> imperial (ft)
+        </label>
+    </div>
+    <div class="collection-item">
+        <!-- <p>Tiles vertical: {{vm.priceSlider.value}}</p> -->
+        <rzslider rz-slider-model="vm.calc_data.slider_vertical" rz-slider-options="parameters.sliderOptions.vertical"></rzslider>
+    </div>
+    <div class="collection-item">
+        <!-- <p>Tiles horizontal: {{vm.priceSlider.value}}</p> -->
+        <rzslider rz-slider-model="vm.calc_data.slider_horizontal" rz-slider-options="parameters.sliderOptions.horizontal"></rzslider>
+    </div>
+</form>
+</div>
