@@ -1,5 +1,3 @@
-
-
 (function (angular) {
 
     angular.module('CalcApp').directive('controls', function (Calculator) {

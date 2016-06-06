@@ -50,18 +50,11 @@
         <div class="col s12 l4">
             <ul class="collapsible popout" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header"><i class="medium material-icons">extension</i>Select model</div>
+                    <div class="collapsible-header"><i class="medium material-icons">extension</i>{{ vm.calc_data.is_rental ? 'Rental' : 'Fixed' }} models</div>
                     <div class="collapsible-body scrollable-box">
-                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays">
-                            <header>
-                                <!-- <header class="" ng-click="addSuccess = 'uk-form-success'" ng-class="addSuccess"> -->
-                                <img class="uk-comment-avatar" ng-src="{{ display.url }}" alt="led display {{ display.name }}">
-                                <h2 class="uk-comment-title">{{ display.name }}</h2>
-                                <div class="uk-comment-meta">location: {{ display.location }}</div>
-                                <div class="uk-comment-meta">size: {{ display.horizontalResolution }} x {{ display.verticalResolution }} px</div>
-                                <div class="uk-comment-meta">pixel pitch: {{ display.pixelPitch }}</div>
-                            </header>
-                        </article>
+                      <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays">
+                        <models></models>
+                      </article>
                     </div>
                 </li>
             </ul>
@@ -73,32 +66,7 @@
                 <li>
                     <div class="collapsible-header"><i class="medium material-icons">apps</i>Result</div>
                     <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col s6">
-                                <p class="right-align">Screen resolution</p>
-                                <p class="right-align">Screen dimensions</p>
-                                <p class="right-align">Screen diagonal</p>
-                                <p class="right-align">Aspect ratio</p>
-                                <p class="right-align">Total LED tiles</p>
-                                <p class="right-align">Surface</p>
-                                <p class="right-align">Max. power consumption</p>
-                                <p class="right-align">Typ. power consumption</p>
-                                <p class="right-align">Weight without steel</p>
-                                <p class="right-align">Optimal viewing distance</p>
-                            </div>
-                            <div class="col s6">
-                                <p>{{ vm.calc_data.is_outdoor && 'Outoor' || 'Indoor' }}</p>
-                                <p>{{ vm.calc_data.is_rental ? 'Rental' : 'Fixed' }}</p>
-                                <p>{{ vm.calc_data.is_imperial ? 'Imperial' : 'Metric' }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                                <p>{{ }}</p>
-                            </div>
-                        </div>
+                        <result></result>
                     </div>
                 </li>
             </ul>
@@ -118,6 +86,8 @@
     <script src="app/app.js"></script>
     <script src="app/calculator/calculator.service.js"></script>
     <script src="app/calculator/controls/controls.directive.js"></script>
+    <script src="app/calculator/models/models.directive.js"></script>
+    <script src="app/calculator/result/result.directive.js"></script>
 
     <!-- Controllers -->
     <script src="app/controllers/MainController.js"></script>

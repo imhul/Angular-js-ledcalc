@@ -4,7 +4,9 @@ CalcApp.controller('MainController', ['Displays', 'Calculator', function(Display
 
     Displays.get().then(
         function(_data) {
+
             vm.displays = _data.data;
+
         }
     );
 
