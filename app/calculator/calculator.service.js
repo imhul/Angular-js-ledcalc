@@ -30,11 +30,11 @@ angular.module('CalcApp').service('Calculator', function() {
 
         $scope.screenResolution = display.horizontalResolution*slider_horizontal + ' x ' + display.verticalResolution*slider_vertical;
 
-        // if ((wallWidth / wallHeight) > 1.6) {
-        //     $scope.ratio = "16:9";
-        // } else {
-        //     $scope.ratio = "4:3";
-        // }
+        if ((wallWidth / wallHeight) > 1.6) {
+            $scope.ratio = "16:9";
+        } else {
+            $scope.ratio = "4:3";
+        }
 
     }
 });
