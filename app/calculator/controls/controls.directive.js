@@ -1,6 +1,6 @@
-(function (angular) {
+(function(angular) {
 
-    angular.module('CalcApp').directive('controls', function (Calculator) {
+    angular.module('CalcApp').directive('controls', function(Calculator) {
 
         return {
             restict: 'EA',
@@ -9,16 +9,18 @@
             },
             controllerAs: 'parameters',
             templateUrl: '/projects/calc/app/calculator/controls/controls.template.html',
-            controller: function () {
+            controller: function() {
                 this.sliderOptions = {
                     horizontal: {
+                        min: 1,
+                        max: 100,
                         value: 10,
                         options: {
                             floor: 1,
                             ceil: 100,
                             showSelectionBar: true,
                             translate: function(value) {
-                              return 'Tiles horizontal: ' + value;
+                                return 'Tiles horizontal: ' + value;
                             }
                         }
                     },
@@ -31,17 +33,17 @@
                             ceil: 100,
                             showSelectionBar: true,
                             translate: function(value) {
-                              return 'Tiles vertical: ' + value;
+                                return 'Tiles vertical: ' + value;
                             }
                         }
                     }
                 };
             },
-            link: function ($scope, el, attrs, vm) {
-                var checkForm = function () {
+            link: function($scope, el, attrs, vm) {
+                var checkForm = function() {
                     return vm.form_of_stuff.$pristine;
                 }
-                $scope.$watch(checkForm, function (isPristine) {
+                $scope.$watch(checkForm, function(isPristine) {
 
                     if (!isPristine) {
                         Calculator.calculate();

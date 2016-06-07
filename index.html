@@ -58,7 +58,7 @@
                 <li>
                     <div class="collapsible-header"><i class="medium material-icons">extension</i>{{ vm.calc_data.is_rental ? 'Rental' : 'Fixed' }} models</div>
                     <div class="collapsible-body scrollable-box">
-                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays">
+                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
                             <models></models>
                         </article>
                     </div>
