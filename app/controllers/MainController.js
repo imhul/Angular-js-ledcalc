@@ -1,15 +1,19 @@
-CalcApp.controller('MainController', ['Displays', 'Calculator', function(Displays, Calculator) {
+(function (angular) {
 
-    var vm = this;
+    angular.module('CalcApp').controller('MainController', ['Displays', 'Calculator', function(Displays, Calculator) {
 
-    Displays.get().then(
-        function(_data) {
+        var vm = this;
 
-            vm.displays = _data.data;
+        Displays.get().then(
+            function(_data) {
 
-        }
-    );
+                vm.displays = _data.data;
 
-    vm.calc_data = Calculator.data;
+            }
+        );
 
-}]);
+        vm.calc_data = Calculator.data;
+
+    }]);
+
+}(window.angular))

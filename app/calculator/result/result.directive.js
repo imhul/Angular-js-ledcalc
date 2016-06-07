@@ -1,6 +1,6 @@
 (function (angular) {
 
-    angular.module('CalcApp').directive('result', function (Calculator) {
+    angular.module('CalcApp').directive('result', function (Calculator, appConfig) {
 
         return {
             restict: 'EA',
@@ -8,7 +8,7 @@
                 controlsData: '=data'
             },
             controllerAs: 'parametersResult',
-            templateUrl: '/projects/calc/app/calculator/result/result.template.html',
+            templateUrl: appConfig.basePath + '/app/calculator/result/result.template.html',
             controller: function() {
 
             }

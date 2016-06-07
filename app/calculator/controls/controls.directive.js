@@ -1,6 +1,6 @@
 (function(angular) {
 
-    angular.module('CalcApp').directive('controls', function(Calculator) {
+    angular.module('CalcApp').directive('controls', function(Calculator, appConfig) {
 
         return {
             restict: 'EA',
@@ -8,7 +8,7 @@
                 controlsData: '=data'
             },
             controllerAs: 'parameters',
-            templateUrl: '/projects/calc/app/calculator/controls/controls.template.html',
+            templateUrl: appConfig.basePath + '/app/calculator/controls/controls.template.html',
             controller: function() {
                 this.sliderOptions = {
                     horizontal: {

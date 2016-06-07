@@ -1,8 +1,8 @@
-CalcApp.service('Displays', ['$http', '$q', function($http, $q) {
+angular.module('CalcApp').service('Displays', ['$http', '$q', 'appConfig', function($http, $q, appConfig) {
     return {
         get: function () {
 
-           return $http.get('/projects/calc/data/getModels.json')
+           return $http.get(appConfig.basePath + '/data/getModels.json')
                 .then(function(data) {
                   return data;
                 })
