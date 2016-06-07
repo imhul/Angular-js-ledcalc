@@ -9,6 +9,12 @@ angular.module('CalcApp').service('Calculator', function() {
 
     };
 
+    // Как обратиться к свойству объекта из getModels.json ?
+
+    // Как передать значение переменной отсюда в result.template.html и preview.template.html ?
+
+    // Как отфильтровать список из getModels.json по значению свойства объекта?
+    
     this.MODULE_SIDE = 0.387; // m
     this.MODULE_SQUARE = 0.15; // m*m
 
