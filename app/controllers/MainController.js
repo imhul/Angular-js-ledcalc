@@ -19,7 +19,7 @@
             console.log(' @ refresh slider');
             $scope.$broadcast('rzSliderForceRender')
         });
-
+        // функция сортировки по локации
         vm.byLocation = function() {
             var val = vm.calc_data.is_outdoor ? 'outdoor' : 'indoor';
             vm.displays = vm.displaysAll.filter(function(item) {
