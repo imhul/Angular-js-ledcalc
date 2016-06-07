@@ -2,7 +2,7 @@
 <div class="container tune collection" ng-form="parameters.form_of_stuff">
     <div class="switch collection-item">
         <label>Indoor
-            <input type="checkbox" ng-model="vm.calc_data.is_outdoor">
+            <input type="checkbox" ng-model="vm.calc_data.is_outdoor" ng-change="vm.byLocation()">
             <span class="lever"></span> Outdoor
         </label>
     </div>
@@ -22,12 +22,18 @@
     <div class="collection-item">
       Tiles vertical
         <!-- <p>Tiles vertical: {{vm.priceSlider.value}}</p> -->
-        <rzslider rz-slider-model="vm.calc_data.slider_vertical" rz-slider-options="parameters.sliderOptions.vertical"></rzslider>
+        <rzslider
+            rz-slider-model="parameters.sliderOptions.vertical.value"
+            rz-slider-options="parameters.sliderOptions.vertical.options">
+         </rzslider>
     </div>
     <div class="collection-item">
       Tiles horizontal
         <!-- <p>Tiles horizontal: {{vm.priceSlider.value}}</p> -->
-        <rzslider rz-slider-model="vm.calc_data.slider_horizontal" rz-slider-options="parameters.sliderOptions.horizontal"></rzslider>
+        <rzslider
+            rz-slider-model="parameters.sliderOptions.horizontal.value"
+            rz-slider-options="parameters.sliderOptions.horizontal.options">
+        </rzslider>
     </div>
 </div>
 </div>

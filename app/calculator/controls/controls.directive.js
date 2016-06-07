@@ -12,32 +12,35 @@
             controller: function() {
                 this.sliderOptions = {
                     horizontal: {
-                        min: 1,
-                        max: 100,
                         value: 10,
                         options: {
                             floor: 1,
-                            ceil: 100,
+                            ceil: 50,
                             showSelectionBar: true,
                             translate: function(value) {
                                 return 'Tiles horizontal: ' + value;
+                            },
+                            onEnd: function() {
+                                Calculator.data.slider_horizontal = arguments[1]
                             }
                         }
                     },
                     vertical: {
-                        min: 1,
-                        max: 100,
                         value: 10,
                         options: {
                             floor: 1,
-                            ceil: 100,
+                            ceil: 60,
                             showSelectionBar: true,
                             translate: function(value) {
                                 return 'Tiles vertical: ' + value;
+                            },
+                            onEnd: function() {
+                                Calculator.data.slider_vertical = arguments[1]
                             }
                         }
                     }
                 };
+
             },
             link: function($scope, el, attrs, vm) {
                 var checkForm = function() {

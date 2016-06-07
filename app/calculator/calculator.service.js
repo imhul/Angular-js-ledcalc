@@ -1,11 +1,13 @@
 angular.module('CalcApp').service('Calculator', function() {
 
+    window.calc = this;
+
     this.data = {
         is_outdoor: false,
         is_imperial: false,
         is_rental: false,
-        slider_vertical: 100,
-        slider_horizontal: 100,
+        slider_vertical: 10,
+        slider_horizontal: 10,
 
     };
 
@@ -30,17 +32,17 @@ angular.module('CalcApp').service('Calculator', function() {
     // this.minViewDistance = pixelPitch * 0.9;
     // this.maxViewDistance = wallWidth * 30;
 
-    this.calculate = function($scope) {
-
-
-
-        $scope.screenResolution = display.horizontalResolution*slider_horizontal + ' x ' + display.verticalResolution*slider_vertical;
-
-        if ((wallWidth / wallHeight) > 1.6) {
-            $scope.ratio = "16:9";
-        } else {
-            $scope.ratio = "4:3";
-        }
+    this.calculate = function() {
+        //
+        //
+        //
+        // $scope.screenResolution = display.horizontalResolution*slider_horizontal + ' x ' + display.verticalResolution*slider_vertical;
+        //
+        // if ((wallWidth / wallHeight) > 1.6) {
+        //     $scope.ratio = "16:9";
+        // } else {
+        //     $scope.ratio = "4:3";
+        // }
 
     }
 });
