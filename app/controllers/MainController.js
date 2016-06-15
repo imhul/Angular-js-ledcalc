@@ -1,4 +1,4 @@
-(function (angular) {
+(function(angular) {
 
     angular.module('CalcApp').controller('MainController', function($scope, $timeout, Displays, Calculator) {
 
@@ -15,17 +15,27 @@
 
         vm.calc_data = Calculator.data;
 
+        // console.log(vm.calc_data.slider_vertical);
+
         vm.refreshSlider = $timeout(function() {
-            console.log(' @ refresh slider');
             $scope.$broadcast('rzSliderForceRender')
         });
-        // функция сортировки по локации
+
+        // функция сортировки по location
         vm.byLocation = function() {
             var val = vm.calc_data.is_outdoor ? 'outdoor' : 'indoor';
             vm.displays = vm.displaysAll.filter(function(item) {
                 return item.location.toLowerCase() === val;
             });
         }
+        // функция сортировки по applications
+        vm.byApplication = function() {
+            var val = vm.calc_data.is_rental ? 'rental' : 'fixed';
+            vm.displays = vm.displaysAll.filter(function(item) {
+                return item.applications.toLowerCase() === val;
+            });
+        }
+
 
     });
 

@@ -12,10 +12,10 @@
             controller: function() {
                 this.sliderOptions = {
                     horizontal: {
-                        value: 10,
+                        value: 6,
                         options: {
                             floor: 1,
-                            ceil: 50,
+                            ceil: 100,
                             showSelectionBar: true,
                             translate: function(value) {
                                 return 'Tiles horizontal: ' + value;
@@ -26,10 +26,10 @@
                         }
                     },
                     vertical: {
-                        value: 10,
+                        value: 6,
                         options: {
                             floor: 1,
-                            ceil: 60,
+                            ceil: 100,
                             showSelectionBar: true,
                             translate: function(value) {
                                 return 'Tiles vertical: ' + value;

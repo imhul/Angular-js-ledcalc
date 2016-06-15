@@ -1,26 +1,35 @@
-<div class="row">
-    <div class="col s6">
-        <p class="right-align">Screen resolution</p>
-        <p class="right-align">Screen dimensions</p>
-        <p class="right-align">Screen diagonal</p>
-        <p class="right-align">Aspect ratio</p>
-        <p class="right-align">Total LED tiles</p>
-        <p class="right-align">Surface</p>
-        <p class="right-align">Max. power consumption</p>
-        <p class="right-align">Typ. power consumption</p>
-        <p class="right-align">Weight without steel</p>
-        <p class="right-align">Optimal viewing distance</p>
-    </div>
-    <div class="col s6">
-        <p>{{ vm.calculate.screenResolution }} x {{ display.verticalResolution }}</p>
-        <p>{{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }} px</p>
-        <p>{{ vm.calc_data.is_imperial ? 'Imperial' : 'Metric' }}</p>
-        <p>{{ vm.calc_data.ratio }} {{ scope.ratio }}</p>
-        <p>{{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical }}</p>
-        <p>{{ }}</p>
-        <p>{{ }}</p>
-        <p>{{ }}</p>
-        <p>{{ }}</p>
-        <p>{{ }}</p>
-    </div>
+<div class="collection">
+    <p class="collection-item">Screen resolution
+    <span class="secondary-content">
+      {{ vm.displays[0].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[0].verticalResolution*vm.calc_data.slider_vertical }} px</span></span></p>
+    <p class="collection-item">Screen dimensions
+    <span class="secondary-content">
+      {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[0].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+    <p class="collection-item">Screen diagonal
+    <span class="secondary-content">
+      {{ 0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+    <p class="collection-item">Aspect ratio
+    <span class="secondary-content">
+      {{ 16 }}:{{ 9 }}</span></p>
+    <p class="collection-item">Total LED tiles
+    <span class="secondary-content">
+      {{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
+    <p class="collection-item">Surface
+    <span class="secondary-content">
+      {{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical*0.15 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
+    <p class="collection-item">Max. power consumption
+    <span class="secondary-content">
+      {{ vm.displays[0].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
+    <p class="collection-item">Typ. power consumption
+    <span class="secondary-content">
+      {{ vm.displays[0].avgPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
+    <p class="collection-item">Weight without steel
+    <span class="secondary-content">
+      {{ vm.displays[0].weight*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} {{ vm.calc_data.is_imperial ? 'lb' : 'kg' }}</span></p>
+    <p class="collection-item">Min. viewing distance
+    <span class="secondary-content">
+      {{ vm.displays[0].pixelPitch * 0.9 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+    <p class="collection-item">Max. viewing distance
+    <span class="secondary-content">
+      {{ vm.calc_data.slider_vertical*30*0.3864 | number:0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
 </div>
