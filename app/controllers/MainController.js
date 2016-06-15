@@ -21,6 +21,14 @@
             $scope.$broadcast('rzSliderForceRender')
         });
 
+        // функция, передающая данные выделенной модели
+        vm.byModel = function(event) {
+            // vm.selectedModel = $index;
+            vm.selectedModel = vm.displaysAll.filter(function(item) {
+                return item === vm.selectedModel;
+            });
+        }
+
         // функция сортировки по location
         vm.byLocation = function() {
             var val = vm.calc_data.is_outdoor ? 'outdoor' : 'indoor';
@@ -28,6 +36,7 @@
                 return item.location.toLowerCase() === val;
             });
         }
+
         // функция сортировки по applications
         vm.byApplication = function() {
             var val = vm.calc_data.is_rental ? 'rental' : 'fixed';
