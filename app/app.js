@@ -1,7 +1,7 @@
 (function(angular){
 
     angular
-        .module('CalcApp', ['rzModule'])
+        .module('CalcApp', ['rzModule', 'AngularPrint'])
         .constant('appConfig', {
             'basePath': '/projects/calc'//'/projects/calc'
         })

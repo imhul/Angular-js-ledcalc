@@ -7,6 +7,7 @@
     <title>LED Calc</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/print.css" rel="stylesheet" />
     <link href="assets/css/materialize.min.css" rel="stylesheet" />
     <link href="assets/css/theme.css" rel="stylesheet" />
 
@@ -17,13 +18,15 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/materialize.min.js"></script>
     <script src="assets/js/slider.min.js"></script>
+    <script src="assets/js/print.js"></script>
 </head>
 
 <!-- TODO
 
- - прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant)
- - разобраться в классах в javascript, понять основы объектно-ориентированного программирования,
- - цель: уметь писать классы с методами и вызывать их -->
+1) Прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant) и разобраться в классах в javascript, понять основы объектно-ориентированного программирования с целью уметь писать классы с методами и вызывать их
+2) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
+3) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
+4) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек) -->
 
 
 <body ng-app="CalcApp">
@@ -36,7 +39,7 @@
             <h2 class="brand-logo center hide-on-small-only">LED Calc</h2>
             <div class="brand-logo right buttons">
                 <div class="hide-on-med-and-down">
-                    <a class="waves-effect waves-light btn">Print</a>
+                    <a print-btn class="waves-effect waves-light btn">Print</a>
                     <a href="http://ekta.com.ua/en/contacts" class="waves-effect waves-light btn">Get a quote</a>
                 </div>
                 <div class="fixed-action-btn click-to-toggle hide-on-large-only" style="top: 0; right: 25px;">
@@ -45,7 +48,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a class="btn-floating btn-large waves-effect waves-light light-blue">
+                            <a print-btn class="btn-floating btn-large waves-effect waves-light light-blue">
                                 <i class="material-icons">print</i></a>
                         </li>
                         <li>
@@ -65,6 +68,7 @@
             <div class="valign-wrapper">
                 <i class="valign medium material-icons">remove_red_eye</i><span class="valign">&nbsp;&nbsp;Preview</span>
             </div>
+            <div class="human"><i class="large material-icons">accessibility</i></div>
             <div class="center-align">
                 <table class="preview" style="width:{{ (vm.rows*50)+(vm.rows*1) }}px">
                     <tbody>
@@ -111,7 +115,7 @@
                 <li>
                     <div class="collapsible-header hoverable"><i class="medium material-icons">apps</i>Result</div>
                     <div class="collapsible-body">
-                        <result></result>
+                        <result print-section></result>
                     </div>
                 </li>
             </ul>
