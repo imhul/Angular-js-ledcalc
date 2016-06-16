@@ -55,6 +55,11 @@ i {
 .logo {
   margin: 20px 0 0 20px;
 }
+.fixed-action-btn ul {
+  top: 105px;
+  right: -20px;
+  left: -15px;
+}
 .collapsible-body p {
     padding: 0.4rem 0.4rem 0.5rem 2rem;
 }

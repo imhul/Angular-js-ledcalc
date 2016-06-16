@@ -21,7 +21,7 @@
         vm.humanHeight = 1.8;
 
         vm.tableConstructor = function(amt) {
-                return new Array(amt);
+            return new Array(amt);
         }
 
         // working vars
