@@ -32,13 +32,20 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
       var wallDiagonal = Math.sqrt((Math.pow(MODULE_SIDE * this.data.slider_horizontal)) + (Math.pow(MODULE_SIDE * this.data.slider_vertical)));
 
       console.log(this.calculate.wallDiagonal);
-
+      // $scope.screenResolution = display.horizontalResolution*slider_horizontal + ' x ' + display.verticalResolution*slider_vertical;
+      //
+      // if ((wallWidth / wallHeight) > 1.6) {
+      //     $scope.ratio = "16:9";
+      // } else {
+      //     $scope.ratio = "4:3";
+      // }
       var imperialFactor = function(result) { // Функция пересчета результата в империческую систему
         if(Calculator.data.is_imperial===true) {
           return result * 3.28084;
         }
 
       };
+
 
     }
 });

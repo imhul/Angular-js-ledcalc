@@ -1,11 +1,11 @@
 <div class="collection">
-    <p class="collection-item">Screen resolution
+    <p class="collection-item">Resolution
     <span class="secondary-content">
       {{ vm.displays[0].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[0].verticalResolution*vm.calc_data.slider_vertical }} px</span></span></p>
-    <p class="collection-item">Screen dimensions
+    <p class="collection-item">Dimensions
     <span class="secondary-content">
       {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[0].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
-    <p class="collection-item">Screen diagonal
+    <p class="collection-item">Diagonal
     <span class="secondary-content">
       {{ 0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Aspect ratio

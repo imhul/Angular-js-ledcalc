@@ -1,8 +1,8 @@
-<table border="1" cellpadding="10" class="responsive-table" style="color:#fff; border: 0;">
-  <tr ng-repeat="$index in vm.calc_data.slider_vertical">
-    <td style="width: 50px; height: 50px; background-color: #888;" ng-repeat="j in {{vm.calc_data.slider_horizontal}}">tr {{i}} and td {{j}}</td>
+<table cellpadding="10" class="" style="color:#fff; border: 1px solid black; background-color: #fff; width: 100%;">
+  <tr ng-repeat="row in vm.tableConstructor(ctrlTable.rows) track by $index">
+    <td style="width: 50px; height: 50px; background-color: #888;" ng-repeat="col in vm.tableConstructor(ctrlTable.cols) track by $index">tr {{i}} and td {{j}}</td>
   </tr>
 </table>
 
-<p>vertical: {{vm.calc_data.slider_vertical}}</p>
-<p>horizontal: {{vm.calc_data.slider_horizontal}}</p>
+<!-- <p>vertical: {{vm.calc_data.slider_vertical}}</p>
+<p>horizontal: {{vm.calc_data.slider_horizontal}}</p> -->
