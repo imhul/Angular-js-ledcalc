@@ -14,14 +14,15 @@
         );
 
         vm.calc_data = Calculator.data;
-        var rows = vm.calc_data.slider_vertical;
-        var cols = vm.calc_data.slider_horizontal;
+        vm.rows = vm.calc_data.slider_vertical;
+        vm.cols = vm.calc_data.slider_horizontal;
 
         vm.tableConstructor = function(amt) {
                 return new Array(amt);
         }
 
         // working vars
+        // console.log('array: ' + vm.tableConstructor(vm.rows));
         // console.log(vm.calc_data.slider_vertical);
         // console.log('horizontal: ' + Calculator.data.slider_horizontal);
         // console.log('vertical: ' + Calculator.data.slider_vertical);

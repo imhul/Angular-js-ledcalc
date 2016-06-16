@@ -134,6 +134,10 @@ i {
 .container {
     width: 80%;
 }
+.preview {
+  color:#fff;
+  background-color: #fff;
+}
 rzslider {
   position: relative;
   display: inline-block;
