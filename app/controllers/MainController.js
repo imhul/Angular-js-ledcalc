@@ -14,15 +14,23 @@
         );
 
         vm.calc_data = Calculator.data;
-
         vm.rows = vm.calc_data.slider_vertical;
         vm.cols = vm.calc_data.slider_horizontal;
-
         vm.humanHeight = 1.8;
 
+        // Функция, задающая количество строк и столбцов таблицы, беря значения слайдеров.
         vm.tableConstructor = function(amt) {
             return new Array(amt);
         }
+
+        // Refresh
+        vm.checkSliders = function() {
+            return vm.calc_data;
+        }
+        $scope.$watch(vm.checkSliders, function($digest) {
+            vm.tableConstructor().$digest;
+        });
+
 
         // working vars
         // console.log('array: ' + vm.tableConstructor(vm.rows));

@@ -39,9 +39,15 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
       // } else {
       //     $scope.ratio = "4:3";
       // }
-      var imperialFactor = function(result) { // Функция пересчета результата в империческую систему
+      var imperialFactorFt = function(resultFt) { // Функция пересчета результата в империческую систему (футы)
         if(Calculator.data.is_imperial===true) {
-          return result * 3.28084;
+          return resultFt * 3.28084;
+        }
+
+      };
+      var imperialFactorLb = function(resultLb) { // Функция пересчета результата в империческую систему ()
+        if(Calculator.data.is_imperial===true) {
+          return resultLb * 2.2;
         }
 
       };
