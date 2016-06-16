@@ -14,8 +14,11 @@
         );
 
         vm.calc_data = Calculator.data;
+
         vm.rows = vm.calc_data.slider_vertical;
         vm.cols = vm.calc_data.slider_horizontal;
+
+        vm.humanHeight = 1.8;
 
         vm.tableConstructor = function(amt) {
                 return new Array(amt);
