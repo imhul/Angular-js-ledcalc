@@ -60,6 +60,9 @@ i {
   right: -20px;
   left: -15px;
 }
+.preview-wrapper {
+  font-size: 1.8rem;
+}
 .collapsible-body p {
     padding: 0.4rem 0.4rem 0.5rem 2rem;
 }
