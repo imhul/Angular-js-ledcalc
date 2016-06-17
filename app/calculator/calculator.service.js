@@ -6,8 +6,8 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
         is_outdoor: false,
         is_imperial: false,
         is_rental: false,
-        slider_vertical: 4,
-        slider_horizontal: 4
+        slider_vertical: 6,
+        slider_horizontal: 10
 
         // moduleQuantity: slider_horizontal * slider_vertical,
         //

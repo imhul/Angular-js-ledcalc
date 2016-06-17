@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>LED Calculator</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/print.css" rel="stylesheet" />
     <link href="assets/css/materialize.min.css" rel="stylesheet" />
@@ -27,6 +26,7 @@
 2) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
 3) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
 4) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
+5) Добавить динамическое изменение параметров таблицы preview с помощью $watch и $digest
 
  -->
 
@@ -38,106 +38,104 @@
             <a href="http://ekta.ua/" class="brand-logo left">
                 <img class="logo" src="assets/img/logo.png" width="142">
             </a>
-            <h2 class="brand-logo center hide-on-small-only">LED Calculator</h2>
-            <div class="brand-logo right buttons">
-                <div class="hide-on-med-and-down">
-                    <a print-btn class="waves-effect waves-light btn">Print</a>
-                    <a href="http://ekta.com.ua/en/contacts" class="waves-effect waves-light btn">Get a quote</a>
-                </div>
-                <div class="fixed-action-btn click-to-toggle hide-on-large-only" style="top: 0; right: 25px;">
-                    <a class="btn-floating btn-large waves-effect waves-light">
-                        <i class="large material-icons">menu</i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a print-btn class="btn-floating btn-large waves-effect waves-light light-blue">
-                                <i class="material-icons">print</i></a>
-                        </li>
-                        <li>
-                            <a class="btn-floating btn-large waves-effect waves-light light-blue" href="http://ekta.com.ua/en/contacts">
-                                <i class="material-icons">message</i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <h2 class="brand-logo center hide-on-small-only">LED CALCULATOR</h2>
+            <h2 class="brand-logo right hide-on-med-and-up">LED CALCULATOR</h2>
         </div>
     </nav>
 
+    <!-- main -->
+
     <main class="container row" ng-controller="MainController as vm">
-        <!-- Preview -->
 
-        <div class="preview-wrapper col s12 card-panel hoverable z-depth-1">
+        <!-- Table Preview -->
+
+        <div class="col s12 card-panel hoverable z-depth-1">
+            <div class="card-header preview-header valign-wrapper">
+                <i class="valign medium material-icons">remove_red_eye</i>
+                <span class="valign">&nbsp;&nbsp;Preview</span>
+            </div>
             <div class="valign-wrapper">
-                <i class="valign medium material-icons">remove_red_eye</i><span class="valign">&nbsp;&nbsp;Preview</span>
-            </div>
-            <div class="human"><i class="large material-icons">accessibility</i></div>
-            <div class="center-align">
-                <table class="preview" style="width:{{ (vm.rows*50)+(vm.rows*1) }}px">
-                    <tbody>
-                        <tr ng-repeat="row in vm.tableConstructor(vm.rows) track by $index">
-                            <td ng-repeat="col in vm.tableConstructor(vm.cols) track by $index" style="width:{{50}}px; height:{{50}}px;">
 
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- PROJECT "HUMAN" -->
+                <div class="human">
+                    <i class="fa fa-male" aria-hidden="true" style="font-size:{{18.5}}rem;"></i>
+                </div>
+                <div class="table-wrapper">
+                    <table class="preview" style="width:{{ (vm.cols*50)+(vm.cols-1) }}px">
+                        <tbody>
+                            <tr ng-repeat="row in vm.tableConstructor(vm.rows) track by $index">
+                                <td ng-repeat="col in vm.tableConstructor(vm.cols) track by $index" style="width:{{50}}px; height:{{50}}px;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <!-- Tune -->
+        <!-- Table Preview end, Select model begin -->
 
         <div class="col s12 l4">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header hoverable" ng-click="vm.renderSlider()"><i class="medium material-icons">tune</i>Tune</div>
-                    <div class="collapsible-body">
-                        <controls></controls>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- Select model -->
-
-        <div class="col s12 l4">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header hoverable"><i class="medium material-icons">extension</i>Models</div>
-                    <div class="collapsible-body scrollable-box">
-                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
-                            <models></models>
-                        </article>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- Result -->
-
-        <div class="col s12 l4">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header hoverable"><i class="medium material-icons">apps</i>Result</div>
-                    <div class="collapsible-body">
-                        <result print-section></result>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="images/office.jpg">
-            </div> -->
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <div class="card hoverable">
+                <div class="card-header card-content valign-wrapper">
+                    <i class="valign medium material-icons">extension</i>
+                    <span class="valign">&nbsp;&nbsp;Models</span>
+                </div>
+                <div class="scrollable-box">
+                    <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
+                        <models></models>
+                    </article>
+                </div>
             </div>
         </div>
 
+        <!-- Select model end, front side - Tune begin -->
+
+        <div class="col s12 l8">
+            <div class="card hoverable">
+                <div class="card-content">
+                    <div class="valign-wrapper card-header grey-text text-darken-4" ng-click="vm.renderSlider()">
+                        <i class="valign medium material-icons">tune</i>
+                        <span class="valign">&nbsp;&nbsp;Tune</span>
+                    </div>
+                    <controls></controls>
+
+                    <!-- activator -->
+                    <div class="valign-wrapper">
+                        <div class="container valign center-align">
+                            <a class="waves-effect waves-light btn-large activator light-blue">Get result</a>
+                        </div>
+                    </div>
+
+                    <!-- front side - Tune end -->
+
+                </div>
+
+                <!-- back side - Result -->
+
+                <div class="card-reveal">
+                    <span class="card-title">
+                <i class="material-icons right">close</i>
+              </span>
+                    <div class="valign-wrapper card-header grey-text text-darken-4">
+                        <i class="valign medium material-icons">widgets</i>
+                        <span class="valign">&nbsp;&nbsp;Result</span>
+                    </div>
+                    <result></result>
+                    <div class="valign-wrapper">
+                        <div class="container valign center-align">
+                            <a print-btn class="waves-effect waves-light btn light-blue">Print</a>
+                            <a href="http://ekta.com.ua/en/contacts" class="waves-effect waves-light btn red lighten-1">Get a quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- back side - Result end -->
+
+        </div>
     </main>
+
+    <!-- main end, footer begin -->
 
     <footer class="page-footer blue-grey darken-3">
         <div class="container">
@@ -147,9 +145,21 @@
                     <h1 class="white-text">AHEAD OF THE FUTURE</h1>
                 </div>
 
-                <!-- <div class="col s1"></div> -->
+                <div class="col l4 m6 s12">
+                    <h5 class="white-text">About</h5>
+                    <ul>
+                        <li><a href="/en/history" title="hystory of EKTA company">history</a></li>
+                        <li><a href="/en/technologies" title="technologies of EKTA company">technologies</a></li>
+                        <li><a href="/en/partners" title="EKTA company partners">partners</a></li>
+                        <li><a href="/en/contacts" title="EKTA company contacts">contacts</a></li>
+                    </ul>
+                    <h5 class="white-text">EMS</h5>
+                    <ul>
+                        <li><a href="/en/contract-manufacturing" title="Capacities EKTA">Capacities</a></li>
+                    </ul>
+                </div>
 
-                <div class="col l2 m6 s12">
+                <div class="col l4 m6 s12">
                     <h5 class="white-text">Products</h5>
                     <ul>
                         <li><a href="/en/products/led-controllers" title="led-controllers">LED display controllers</a></li>
@@ -160,32 +170,12 @@
                     </ul>
                 </div>
 
-                <div class="col l2 m6 s12">
-                    <h5 class="white-text">About</h5>
-                    <ul>
-                        <li><a href="/en/history" title="hystory of EKTA company">history</a></li>
-                        <li><a href="/en/technologies" title="technologies of EKTA company">technologies</a></li>
-                        <li><a href="/en/partners" title="EKTA company partners">partners</a></li>
-                        <li><a href="/en/contacts" title="EKTA company contacts">contacts</a></li>
-                    </ul>
-                </div>
-
-                <div class="col l2 m6 s12">
+                <div class="col l4 m6 s12">
                     <h5 class="white-text">Support</h5>
                     <ul>
                         <li><a href="/en/service" title="EKTA service">service</a></li>
                         <li><a href="/en/download" title="EKTA catalogs and presentations">downloads</a></li>
                     </ul>
-                </div>
-
-                <div class="col l2 m6 s12">
-                    <h5 class="white-text">EMS</h5>
-                    <ul>
-                        <li><a href="/en/contract-manufacturing" title="Capacities EKTA">Capacities</a></li>
-                    </ul>
-                </div>
-
-                <div class="col l2 m6 s12">
                     <h5 class="white-text">Read</h5>
                     <ul>
                         <li><a href="/en/blog" title="EKTA blog">blog</a></li>
@@ -193,28 +183,30 @@
                     </ul>
                 </div>
 
-                <!-- <div class="col s1"></div> -->
+
+                <!-- <div class="fixed-action-btn horizontal right-align click-to-toggle" style="position: relative; display: block; bottom: 50px; right: 24px;">
+                    <a class="btn-floating btn-large red lighten-1">
+                        <i class="material-icons">person_add</i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://www.youtube.com/user/EKTALED" title="EKTA YouTube channel"><i class="material-icons">play_circle_filled</i></a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://plus.google.com/+EktaledCompany/" title="EKTA Google Plus page"><i>g+</a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://www.linkedin.com/company/ekta" title="EKTA Linkedin page"><i>in</a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://twitter.com/ekta_led" title="EKTA Twitter page"><i>tw</a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://www.facebook.com/EKTACOMPANY" title="EKTA Facebook page"><i>fb</a></li>
+                    </ul>
+                </div> -->
 
             </div>
         </div>
+
         <div class="footer-copyright">
             <div class="container">
                 COPYRIGHT © 2016 EKTA. ALL RIGHTS RESERVED.
             </div>
-            <div class="fixed-action-btn horizontal right-align click-to-toggle" style="bottom: 45px; right: 24px;">
-                <a class="btn-floating btn-large red">
-                    <i class="material-icons">person_add</i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://www.youtube.com/user/EKTALED" title="EKTA YouTube channel"><i class="material-icons">play_circle_filled</i></a></li>
-                    <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://plus.google.com/+EktaledCompany/" title="EKTA Google Plus page"><i>g+</a></li>
-                    <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://www.linkedin.com/company/ekta" title="EKTA Linkedin page"><i>in</a></li>
-                    <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://twitter.com/ekta_led" title="EKTA Twitter page"><i>tw</a></li>
-                    <li><a class="btn-floating waves-effect waves-light light-blue" rel="nofollow" href="https://www.facebook.com/EKTACOMPANY" title="EKTA Facebook page"><i>fb</a></li>
-                </ul>
-            </div>
         </div>
     </footer>
+    <!-- footer end -->
 
     <!-- Modules -->
     <script src="app/app.js"></script>
@@ -226,10 +218,12 @@
 
     <!-- Controllers -->
     <script src="app/controllers/MainController.js"></script>
-    <!-- <script src="app/controllers/PhotoController.js"></script> -->
 
     <!-- Services -->
     <script src="app/services/displays.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/3dbac119a5.js"></script>
 
 </body>
 

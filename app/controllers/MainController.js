@@ -16,7 +16,7 @@
         vm.calc_data = Calculator.data;
         vm.rows = vm.calc_data.slider_vertical;
         vm.cols = vm.calc_data.slider_horizontal;
-        vm.humanHeight = 1.8;
+        vm.humanHeight = 1.75;
 
         // Функция, задающая количество строк и столбцов таблицы, беря значения слайдеров.
         vm.tableConstructor = function(amt) {
