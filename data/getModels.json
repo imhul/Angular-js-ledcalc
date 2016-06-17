@@ -12,7 +12,9 @@
     "maxPowerConsumption":900.0,
     "avgPowerConsumption":300.0,
     "weight":4.2,
-    "applications":"Rental"
+    "applications":"Rental",
+    "maxBrightness":2000,
+    "minBrightness":1800
   },
   {
     "url":"http://ekta.com.ua/images/galleries/ekta/blade_panel.png",
@@ -27,7 +29,9 @@
     "maxPowerConsumption":1150.0,
     "avgPowerConsumption":550.0,
     "weight":5.0,
-    "applications":"Fixed"
+    "applications":"Fixed",
+    "maxBrightness":4000,
+    "minBrightness":3000
   },
   {
     "url":"http://ekta.com.ua/images/galleries/ekta/blade_panel.png",
@@ -42,7 +46,9 @@
     "maxPowerConsumption":900.0,
     "avgPowerConsumption":300.0,
     "weight":4.2,
-    "applications":"Fixed"
+    "applications":"Fixed",
+    "maxBrightness":3500,
+    "minBrightness":2800
   },
   {
     "url":"http://ekta.com.ua/images/galleries/ekta/blade_panel.png",
@@ -57,7 +63,9 @@
     "maxPowerConsumption":1000.0,
     "avgPowerConsumption":330.0,
     "weight":4.2,
-    "applications":"Fixed"
+    "applications":"Fixed",
+    "maxBrightness":3000,
+    "minBrightness":2500
   },
   {
     "url":"http://ekta.com.ua/images/galleries/ekta/blade_panel.png",
@@ -72,6 +80,8 @@
     "maxPowerConsumption":1150.0,
     "avgPowerConsumption":535.0,
     "weight":5.0,
-    "applications":"Fixed"
+    "applications":"Fixed",
+    "maxBrightness":8000,
+    "minBrightness":6500
   }
 ]

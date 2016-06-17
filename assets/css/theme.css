@@ -50,7 +50,7 @@ footer {
 }
 .scrollable-box {
     box-sizing: border-box;
-    max-height: 480px;
+    max-height: 580px;
     min-height: 340px;
     padding: 10px 1.6rem;
     overflow: auto;
@@ -155,14 +155,13 @@ footer {
 .preview td {
     border-radius: 0;
     background-color: #03a9f4;
-    padding: 0;
 }
 .preview-header {
     margin: 10px 0 0 15px;
 }
 .card {
     margin: 0.5rem 0 1rem 0;
-    height: 600px;
+    height: 680px;
 }
 .collection {
     border: 0 none;
@@ -178,6 +177,29 @@ footer {
 }
 .human i {
   color: rgba(155, 155, 255, 0.9);
+}
+.card .card-content {
+    padding: 20px 20px 5px;
+}
+.ruler-vertical {
+  width: 5px;
+}
+.ruler-horizontal {
+  background-color: #fff !important;
+  padding-top: 15px;
+}
+.ruler-horizontal hr {
+  border: 0;
+  border-bottom: 5px dashed #03a9f4;
+  background-color: #fff !important;
+}
+.ruler-vertical div {
+  border: 0;
+  border-left: 5px dashed #03a9f4;
+  background-color: #fff !important;
+}
+.ruler-vertical h5 {
+  padding-left: 10px;
 }
 rzslider {
     position: relative;
