@@ -27,6 +27,7 @@
 3) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
 4) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
 5) Убрать из принта 1й и 3й листы
+6) Допилить значение диагонали
 
  -->
 
@@ -49,7 +50,7 @@
 
         <!-- Table Preview -->
 
-        <div class="col s12">
+        <div class="col s12 hide-on-med-and-down">
             <div class="card-panel hoverable z-depth-1">
                 <div class="card-header preview-header valign-wrapper">
                     <i class="valign medium material-icons">remove_red_eye</i>
@@ -65,30 +66,28 @@
                     <div class="table-wrapper col s10">
                         <table class="preview" style="width:{{ (vm.calc_data.slider_horizontal*50)+(vm.calc_data.slider_horizontal-1) }}px">
                             <tbody>
-                                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index">
+                                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ 50 }}px;">
                                     <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ 50 }}px; height:{{ 50 }}px;"></td>
                                 </tr>
-
                             </tbody>
                         </table>
-
                     </div>
                     <!-- Vertical Ruler -->
-                    <div class="ruler-vertical col s1" style="height:{{ (vm.calc_data.slider_vertical * 50 )+(vm.calc_data.slider_vertical - 1) }}px;">
-                        <div class="left">
+                    <div class="ruler-vertical col s1">
+                        <div>
                             <i class="small material-icons">keyboard_arrow_up</i>
                             <h5 class="">{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
                             <i class="small material-icons">keyboard_arrow_down</i>
                         </div>
                     </div>
-                    <!-- Horizontal Ruler -->
-                    <div class="ruler-horizontal container center">
-                        <h5 class="center">
-                            <i class="small material-icons">keyboard_arrow_left</i>
-                            {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
-                            <i class="small material-icons">keyboard_arrow_right</i>
-                        </h5>
-                    </div>
+                </div>
+                <!-- Horizontal Ruler -->
+                <div class="ruler-horizontal valign-wrapper center">
+                        <i class="small material-icons">keyboard_arrow_left</i>
+                        <h5>
+                        {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+                    </h5>
+                        <i class="small material-icons">keyboard_arrow_right</i>
                 </div>
             </div>
         </div>
