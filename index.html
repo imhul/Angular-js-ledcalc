@@ -26,8 +26,7 @@
 2) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
 3) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
 4) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
-5) Добавить динамическое изменение параметров таблицы preview с помощью $watch и $digest
-6) Убрать из принта 1й и 3й листы
+5) Убрать из принта 1й и 3й листы
 
  -->
 
@@ -46,7 +45,7 @@
 
     <!-- main -->
 
-    <main class="container row" ng-controller="MainController as vm">
+    <main class="container row" ng-controller="MainController as vm" ng-cloak>
 
         <!-- Table Preview -->
 
@@ -56,35 +55,40 @@
                     <i class="valign medium material-icons">remove_red_eye</i>
                     <span class="valign">&nbsp;&nbsp;Preview</span>
                 </div>
-                <div class="valign-wrapper row">
+                <div class="valign-wrapper row" style="margin-bottom:0;">
 
                     <!-- PROJECT "HUMAN" -->
-                    <div class="human col s1">
-                        <i class="fa fa-male" aria-hidden="true" style="font-size:{{ 18.5 }}rem;"></i>
-                    </div>
-                    <div class="table-wrapper col s10">
-                        <table class="preview" style="width:{{ (vm.cols*50)+(vm.cols-1) }}px">
-                            <tbody>
-                                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index">
-                                    <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{50}}px; height:{{50}}px;"></td>
-                                </tr>
-                                <tr>
-                                    <td class="ruler-horizontal row" colspan="{{ vm.calc_data.slider_horizontal + 1 }}">
-                                        <i class="col s1 small material-icons">keyboard_arrow_left</i>
-                                        <hr class="col s10" noshade>
-                                        <i class="col s1 small material-icons">keyboard_arrow_right</i>
-                                        <h5 class="center">{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Vertical Ruler -->
-                    <div class="ruler-vertical col s1" style="height:{{ (vm.rows*50)+(vm.rows-1) }};">
-                        <div></div>
-                        <h5>{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
+                    <div class="human col s1 right">
+                        <i class="fa fa-male" aria-hidden="true" style="font-size:{{ 18.6 }}rem;"></i>
                     </div>
 
+                    <div class="table-wrapper col s10">
+                        <table class="preview" style="width:{{ (vm.calc_data.slider_horizontal*50)+(vm.calc_data.slider_horizontal-1) }}px">
+                            <tbody>
+                                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index">
+                                    <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ 50 }}px; height:{{ 50 }}px;"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <!-- Vertical Ruler -->
+                    <div class="ruler-vertical col s1" style="height:{{ (vm.calc_data.slider_vertical * 50 )+(vm.calc_data.slider_vertical - 1) }}px;">
+                        <div class="left">
+                            <i class="small material-icons">keyboard_arrow_up</i>
+                            <h5 class="">{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
+                            <i class="small material-icons">keyboard_arrow_down</i>
+                        </div>
+                    </div>
+                    <!-- Horizontal Ruler -->
+                    <div class="ruler-horizontal container center">
+                        <h5 class="center">
+                            <i class="small material-icons">keyboard_arrow_left</i>
+                            {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+                            <i class="small material-icons">keyboard_arrow_right</i>
+                        </h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,7 +158,7 @@
 
     <!-- main end, footer begin -->
 
-    <footer class="page-footer blue-grey darken-3">
+    <footer class="page-footer blue-grey darken-3" ng-cloak>
         <div class="container">
             <div class="row">
 
@@ -228,7 +232,6 @@
     <!-- Modules -->
     <script src="app/app.js"></script>
     <script src="app/calculator/calculator.service.js"></script>
-    <!-- <script src="app/calculator/preview/preview.directive.js"></script> -->
     <script src="app/calculator/controls/controls.directive.js"></script>
     <script src="app/calculator/models/models.directive.js"></script>
     <script src="app/calculator/result/result.directive.js"></script>

@@ -21,30 +21,14 @@
             return new Array(amt);
         }
 
-        // Refresh
-        // vm.checkSliders = function() {
-        //     return vm.calc_data;
-        // }
-        // $scope.$watch(vm.checkSliders, function() {
-        //     vm.tableConstructor().$digest;
-        // });
-
-
-        // working vars
-        // console.log(vm.calc_data.slider_vertical);
-        // console.log('horizontal: ' + Calculator.data.slider_horizontal);
-        // console.log('vertical: ' + Calculator.data.slider_vertical);
-
         vm.refreshSlider = $timeout(function() {
             $scope.$broadcast('rzSliderForceRender')
         });
 
         // функция, передающая данные выделенной модели
-        vm.byModel = function(event) {
+        vm.byModel = function(evt) {
             // vm.selectedModel = $index;
-            // vm.selectedModel = vm.displaysAll.filter(function(item) {
-            //     return item === vm.selectedModel;
-            // });
+	          angular.element(evt.target).addClass('selected-model');
         }
 
         // функция сортировки по location

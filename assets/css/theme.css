@@ -150,7 +150,7 @@ footer {
 .preview {
     border-collapse: separate;
     border-spacing: 1px;
-    margin: 25px auto 25px auto;
+    margin: 25px auto 0 auto;
 }
 .preview td {
     border-radius: 0;
@@ -167,39 +167,34 @@ footer {
     border: 0 none;
 }
 .human {
-  width: 140px;
-  margin: 0;
-  overflow: hidden;
-  display: inline;
-  position: relative;
-  top: 34px;
-  left: 60px;
+    overflow: visible;
+    position: relative;
 }
 .human i {
-  color: rgba(155, 155, 255, 0.9);
+    color: #536dfe;
 }
 .card .card-content {
     padding: 20px 20px 5px;
 }
+.card-panel:not(article) {
+    padding-bottom: 0;
+}
 .ruler-vertical {
-  width: 5px;
 }
 .ruler-horizontal {
-  background-color: #fff !important;
-  padding-top: 15px;
+    background-color: #fff !important;
+    padding: 15px 0;
 }
-.ruler-horizontal hr {
-  border: 0;
-  border-bottom: 5px dashed #03a9f4;
-  background-color: #fff !important;
-}
-.ruler-vertical div {
-  border: 0;
-  border-left: 5px dashed #03a9f4;
-  background-color: #fff !important;
+.ruler-vertical .hr-vert {
+    border: 0;
+    height: 100%;
+    border-left: 5px dashed #03a9f4;
+    background-color: #fff !important;
+    display: inline;
+    position: absolute;
 }
 .ruler-vertical h5 {
-  padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 rzslider {
     position: relative;
