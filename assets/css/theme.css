@@ -164,6 +164,15 @@ footer {
 .preview-header {
     margin: 10px 0 0 15px;
 }
+.preview-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.preview-wrapper:nth-child(n+1) {
+  margin: auto;
+  flex: 0 2 auto;
+}
 .card {
     margin: 0.5rem 0 1rem 0;
     height: 680px;
@@ -174,6 +183,7 @@ footer {
 .human {
     overflow: visible;
     position: relative;
+    margin-right: -20px;
 }
 .human i {
     color: #536dfe;
@@ -185,7 +195,9 @@ footer {
     padding-bottom: 0;
 }
 .ruler-vertical {
-  height: 80px;
+  /*height: 80px;*/
+  align-self: center;
+  padding-left: 20px;
 }
 .ruler-horizontal {
     background-color: #fff !important;

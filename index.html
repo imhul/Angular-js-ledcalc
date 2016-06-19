@@ -56,15 +56,15 @@
                     <i class="valign medium material-icons">remove_red_eye</i>
                     <span class="valign">&nbsp;&nbsp;Preview</span>
                 </div>
-                <div class="valign-wrapper row" style="margin-bottom:0;">
+                <div class="preview-wrapper" style="margin-bottom:0;">
 
                     <!-- PROJECT "HUMAN" -->
-                    <div class="human col s1 right">
+                    <div class="human">
                         <i class="fa fa-male" aria-hidden="true" style="font-size:{{ 18.6 }}rem;"></i>
                     </div>
-
-                    <div class="table-wrapper col s10">
-                        <table class="preview" style="width:{{ (vm.calc_data.slider_horizontal*50)+(vm.calc_data.slider_horizontal-1) }}px">
+                    <!-- Preview Table -->
+                    <div class="table-wrapper">
+                        <table class="preview" style="width:{{ (vm.calc_data.slider_horizontal*50) + (vm.calc_data.slider_horizontal-1) }}px">
                             <tbody>
                                 <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ 50 }}px;">
                                     <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ 50 }}px; height:{{ 50 }}px;"></td>
@@ -73,13 +73,14 @@
                         </table>
                     </div>
                     <!-- Vertical Ruler -->
-                    <div class="ruler-vertical col s1">
+                    <div class="ruler-vertical"> <!-- style="height:{{ (vm.calc_data.slider_vertical * 50) + (vm.calc_data.slider_vertical-1) }}px;" -->
                         <div>
                             <i class="small material-icons">keyboard_arrow_up</i>
                             <h5 class="">{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
                             <i class="small material-icons">keyboard_arrow_down</i>
                         </div>
                     </div>
+
                 </div>
                 <!-- Horizontal Ruler -->
                 <div class="ruler-horizontal valign-wrapper center">
