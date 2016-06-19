@@ -1,16 +1,16 @@
 <div class="collection" print-section print-avoid-break>
     <p class="collection-item">Resolution
         <span class="secondary-content">
-      {{ vm.displays[0].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[0].verticalResolution*vm.calc_data.slider_vertical }} px</span></span></p>
+      {{ vm.displays[0].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[0].verticalResolution*vm.calc_data.slider_vertical }} px</span></p>
     <p class="collection-item">Dimensions
         <span class="secondary-content">
       {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[0].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Diagonal
         <span class="secondary-content">
-      {{ 0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+      {{ vm.getDiagonal() | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Aspect ratio
         <span class="secondary-content">
-      {{ 16 }}:{{ 9 }}</span></p>
+      {{ vm.getRatio() }}</span></p>
     <p class="collection-item">Total LED tiles
         <span class="secondary-content">
       {{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
@@ -32,10 +32,10 @@
     <p class="collection-item">Max. viewing distance
         <span class="secondary-content">
       {{ vm.calc_data.slider_vertical*30*0.3864 | number:0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
-    <p class="collection-item">Max. viewing distance
+    <p class="collection-item">Calibrated brightness
         <span class="secondary-content">
       {{ vm.displays[0].minBrightness }} NIT</span></p>
-    <p class="collection-item">Max. viewing distance
+    <p class="collection-item">Max. brightness
         <span class="secondary-content">
       {{ vm.displays[0].maxBrightness }} NIT</span></p>
 </div>

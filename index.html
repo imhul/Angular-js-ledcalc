@@ -23,14 +23,17 @@
 <!-- TODO
 
 1) Прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant) и разобраться в классах в javascript, понять основы объектно-ориентированного программирования с целью уметь писать классы с методами и вызывать их
-2) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
-3) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
-4) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
-5) Убрать из принта 1й и 3й листы
-6) Допилить значение диагонали
 
  -->
 
+<!-- TODO
+
+1) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
+2) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
+3) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
+4) Убрать из принта 1й и 3й листы
+
+ -->
 
 <body ng-app="CalcApp">
 
@@ -73,7 +76,8 @@
                         </table>
                     </div>
                     <!-- Vertical Ruler -->
-                    <div class="ruler-vertical"> <!-- style="height:{{ (vm.calc_data.slider_vertical * 50) + (vm.calc_data.slider_vertical-1) }}px;" -->
+                    <div class="ruler-vertical">
+                        <!-- style="height:{{ (vm.calc_data.slider_vertical * 50) + (vm.calc_data.slider_vertical-1) }}px;" -->
                         <div>
                             <i class="small material-icons">keyboard_arrow_up</i>
                             <h5 class="">{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
@@ -84,11 +88,11 @@
                 </div>
                 <!-- Horizontal Ruler -->
                 <div class="ruler-horizontal valign-wrapper center">
-                        <i class="small material-icons">keyboard_arrow_left</i>
-                        <h5>
+                    <i class="small material-icons">keyboard_arrow_left</i>
+                    <h5>
                         {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
                     </h5>
-                        <i class="small material-icons">keyboard_arrow_right</i>
+                    <i class="small material-icons">keyboard_arrow_right</i>
                 </div>
             </div>
         </div>

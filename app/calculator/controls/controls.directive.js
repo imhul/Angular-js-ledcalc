@@ -26,7 +26,7 @@
                         }
                     },
                     vertical: {
-                        value: 6,
+                        value: 10,
                         options: {
                             floor: 1,
                             ceil: 100,

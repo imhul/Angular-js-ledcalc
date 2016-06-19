@@ -8,49 +8,31 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
         is_rental: false,
         slider_vertical: 6,
         slider_horizontal: 10
-
-        // moduleQuantity: slider_horizontal * slider_vertical,
-        //
-        // wallWidth: 2 * 4, // MODULE_SIDE * moduleQuantityHorizontal;
-        // wallHeight: 3 * 7, // MODULE_SIDE * moduleQuantityVertical;
-        // wallSquare: MODULE_SQUARE * wallWidth * wallHeight,
-        //
-        // minViewDistance = Displays.data.pixelPitch * 0.9,
-        // maxViewDistance = Displays.data.pixelPitch * 30
     };
 
     this.calculate = function() {
 
-      // console.log(this.calculate); // вывод тела функции
+        this.moduleSide = 0.387; // m
+        this.moduleSquare = 0.15; // m*m
 
-      const MODULE_SIDE = 0.387; // m
-      const MODULE_SQUARE = 0.15; // m*m
+        this.moduleAmt = this.data.slider_horizontal * this.data.slider_vertical;
 
-      var moduleAmt = this.data.slider_horizontal * this.data.slider_vertical;
-      console.log(this.calculate.moduleAmt);
+        // TODO Применить imperialFactorFt и imperialFactorLb к результатам
+        //
+        // Функция пересчета результата в империческую систему (футы)
+        this.imperialFactorFt = function(resultFt) {
+            if (Calculator.data.is_imperial === true) {
+                return resultFt * 3.28084;
+            }
 
-      var wallDiagonal = Math.sqrt((Math.pow(MODULE_SIDE * this.data.slider_horizontal)) + (Math.pow(MODULE_SIDE * this.data.slider_vertical)));
+        };
+        // Функция пересчета результата в империческую систему ()
+        this.imperialFactorLb = function(resultLb) {
+            if (Calculator.data.is_imperial === true) {
+                return resultLb * 2.2;
+            }
 
-      console.log(this.calculate.wallDiagonal);
-      // $scope.screenResolution = display.horizontalResolution*slider_horizontal + ' x ' + display.verticalResolution*slider_vertical;
-      //
-      // if ((wallWidth / wallHeight) > 1.6) {
-      //     $scope.ratio = "16:9";
-      // } else {
-      //     $scope.ratio = "4:3";
-      // }
-      var imperialFactorFt = function(resultFt) { // Функция пересчета результата в империческую систему (футы)
-        if(Calculator.data.is_imperial===true) {
-          return resultFt * 3.28084;
-        }
-
-      };
-      var imperialFactorLb = function(resultLb) { // Функция пересчета результата в империческую систему ()
-        if(Calculator.data.is_imperial===true) {
-          return resultLb * 2.2;
-        }
-
-      };
+        };
 
 
     }

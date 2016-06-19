@@ -16,6 +16,23 @@
         vm.calc_data = Calculator.data;
         vm.humanHeight = 1.75;
 
+        vm.getDiagonal = function() {
+                return vm.diagonal = Math.sqrt(
+                    (Math.pow(
+                        (vm.calc_data.slider_horizontal * 0.387), 2)) +
+                    (Math.pow(
+                        (vm.calc_data.slider_vertical * 0.387), 2))
+                );
+            }
+            // Aspect ratio filter
+        vm.getRatio = function() {
+            if ((vm.calc_data.slider_horizontal * 0.387) / (vm.calc_data.slider_vertical * 0.387) > 1.6) {
+                return vm.ratio = "16:9";
+            } else {
+                return vm.ratio = "4:3";
+            }
+        };
+
         // Функция, задающая количество строк и столбцов таблицы, беря значения слайдеров.
         vm.tableConstructor = function(amt) {
             return new Array(amt);
@@ -28,7 +45,7 @@
         // функция, передающая данные выделенной модели
         vm.byModel = function(evt) {
             // vm.selectedModel = $index;
-	          angular.element(evt.target).addClass('selected-model');
+            angular.element(evt.target).addClass('selected-model');
         }
 
         // функция сортировки по location
