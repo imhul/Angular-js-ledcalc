@@ -42,10 +42,11 @@
             $scope.$broadcast('rzSliderForceRender')
         });
 
-        // функция, передающая данные выделенной модели
-        vm.byModel = function(evt) {
-            // vm.selectedModel = $index;
-            angular.element(evt.target).addClass('selected-model');
+        // функция, передающая данные выделенной модели??
+        vm.byModel = function($index) {
+            vm.selectedIndex = $index;
+            Calculator.setModel(vm.displays[vm.selectedIndex]);
+            Calculator.calculate();
         }
 
         // функция сортировки по location

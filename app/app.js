@@ -5,7 +5,8 @@
         .constant('appConfig', {
             'basePath': '/projects/calc'//'/projects/calc'
         })
-        .run(function() {
+        .run(function($location) {
+            console.log('location: ', $location);
             console.log('@ calculator is running');
         });
 

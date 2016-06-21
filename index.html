@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>LED Calculator</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="assets/css/print.css" rel="stylesheet" />
     <link href="assets/css/materialize.min.css" rel="stylesheet" />
     <link href="assets/css/theme.css" rel="stylesheet" />
+    <link href="assets/css/print.css" rel="stylesheet" />
 
     <!-- Include the core AngularJS library -->
     <script src="assets/js/angular.min.js"></script>
@@ -106,7 +106,15 @@
                     <span class="valign">&nbsp;&nbsp;Models</span>
                 </div>
                 <div class="scrollable-box">
-                    <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
+                    <!-- <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
+                        <models></models>
+                    </article> -->
+                    <article style="cursor:pointer;"
+                        class="card-panel hoverable z-depth-1"
+                        ng-repeat="display in vm.displays track by $index"
+                        ng-click="vm.byModel($index)"
+                        ng-class="{'light-green lighten-3': $index === vm.selectedIndex}"
+                    >
                         <models></models>
                     </article>
                 </div>

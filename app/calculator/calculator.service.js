@@ -1,7 +1,5 @@
 angular.module('CalcApp').service('Calculator', function(Displays) {
 
-    window.calc = this;
-
     this.data = {
         is_outdoor: false,
         is_imperial: false,
@@ -10,7 +8,15 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
         slider_horizontal: 10
     };
 
+    this._selectedModel = null;
+
+    this.setModel = function (modelData) {
+        this._selectedModel = angular.copy(modelData);
+    }
+
     this.calculate = function() {
+
+        console.log('current model is: ', this._selectedModel);
 
         this.moduleSide = 0.387; // m
         this.moduleSquare = 0.15; // m*m
