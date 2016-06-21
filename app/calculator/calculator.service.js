@@ -1,4 +1,4 @@
-angular.module('CalcApp').service('Calculator', function(Displays) {
+angular.module('CalcApp').service('Calculator', function() {
 
     this.data = {
         is_outdoor: false,
@@ -8,7 +8,7 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
         slider_horizontal: 10
     };
 
-    this._selectedModel = null;
+    this._selectedModel = null; // Начальное состояние, модель не выбрана
 
     this.setModel = function (modelData) {
         this._selectedModel = angular.copy(modelData);
@@ -16,7 +16,7 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
 
     this.calculate = function() {
 
-        console.log('current model is: ', this._selectedModel);
+        console.log('current model is: ', this._selectedModel.maxBrightness);
 
         this.moduleSide = 0.387; // m
         this.moduleSquare = 0.15; // m*m
@@ -24,22 +24,18 @@ angular.module('CalcApp').service('Calculator', function(Displays) {
         this.moduleAmt = this.data.slider_horizontal * this.data.slider_vertical;
 
         // TODO Применить imperialFactorFt и imperialFactorLb к результатам
-        //
+
         // Функция пересчета результата в империческую систему (футы)
         this.imperialFactorFt = function(resultFt) {
             if (Calculator.data.is_imperial === true) {
                 return resultFt * 3.28084;
             }
-
         };
         // Функция пересчета результата в империческую систему ()
         this.imperialFactorLb = function(resultLb) {
             if (Calculator.data.is_imperial === true) {
                 return resultLb * 2.2;
             }
-
         };
-
-
     }
 });

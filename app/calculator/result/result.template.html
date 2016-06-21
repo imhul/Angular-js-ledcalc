@@ -1,10 +1,10 @@
 <div class="collection" print-section print-avoid-break>
     <p class="collection-item">Resolution
         <span class="secondary-content">
-      {{ vm.displays[0].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[0].verticalResolution*vm.calc_data.slider_vertical }} px</span></p>
+      {{ vm.displays[vm.selectedIndex].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[vm.selectedIndex].verticalResolution*vm.calc_data.slider_vertical }} px</span></p>
     <p class="collection-item">Dimensions
         <span class="secondary-content">
-      {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[0].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+      {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[vm.selectedIndex].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Diagonal
         <span class="secondary-content">
       {{ vm.getDiagonal() | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
@@ -19,23 +19,23 @@
       {{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical*0.15 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
     <p class="collection-item">Max. power consumption
         <span class="secondary-content">
-      {{ vm.displays[0].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
+      {{ vm.displays[vm.selectedIndex].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
     <p class="collection-item">Typ. power consumption
         <span class="secondary-content">
-      {{ vm.displays[0].avgPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
+      {{ vm.displays[vm.selectedIndex].avgPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
     <p class="collection-item">Weight without steel
         <span class="secondary-content">
-      {{ vm.displays[0].weight*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} {{ vm.calc_data.is_imperial ? 'lb' : 'kg' }}</span></p>
+      {{ vm.displays[vm.selectedIndex].weight*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} {{ vm.calc_data.is_imperial ? 'lb' : 'kg' }}</span></p>
     <p class="collection-item">Min. viewing distance
         <span class="secondary-content">
-      {{ vm.displays[0].pixelPitch * 0.9 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+      {{ vm.displays[vm.selectedIndex].pixelPitch * 0.9 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Max. viewing distance
         <span class="secondary-content">
       {{ vm.calc_data.slider_vertical*30*0.3864 | number:0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Calibrated brightness
         <span class="secondary-content">
-      {{ vm.displays[0].minBrightness }} NIT</span></p>
+      {{ vm.displays[vm.selectedIndex].minBrightness }} NIT</span></p>
     <p class="collection-item">Max. brightness
         <span class="secondary-content">
-      {{ vm.displays[0].maxBrightness }} NIT</span></p>
+      {{ vm.displays[vm.selectedIndex].maxBrightness }} NIT</span></p>
 </div>

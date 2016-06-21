@@ -6,10 +6,8 @@
 
         Displays.get().then(
             function(_data) {
-
                 vm.displaysAll = angular.copy(_data.data);
                 vm.displays = _data.data;
-
             }
         );
 
@@ -42,7 +40,7 @@
             $scope.$broadcast('rzSliderForceRender')
         });
 
-        // функция, передающая данные выделенной модели??
+        // функция, передающая данные выделенной модели
         vm.byModel = function($index) {
             vm.selectedIndex = $index;
             Calculator.setModel(vm.displays[vm.selectedIndex]);
@@ -64,8 +62,5 @@
                 return item.applications.toLowerCase() === val;
             });
         }
-
-
     });
-
 }(window.angular))

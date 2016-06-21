@@ -32,6 +32,7 @@
 2) Сделать так, чтобы при клике на одну из моделей, нельзя было кликнуть по нескольким одновременно, и чтобы повторный клик (или клик по другой модели) снимал выделение, а так же, чтобы по клику на модель, данные из json по данной модели привязывались к result.template.html
 3) Сделать привязку preview к человеческому росту (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
 4) Убрать из принта 1й и 3й листы
+5) Применить функции imperialFactor
 
  -->
 
@@ -106,9 +107,6 @@
                     <span class="valign">&nbsp;&nbsp;Models</span>
                 </div>
                 <div class="scrollable-box">
-                    <!-- <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
-                        <models></models>
-                    </article> -->
                     <article style="cursor:pointer;"
                         class="card-panel hoverable z-depth-1"
                         ng-repeat="display in vm.displays track by $index"
