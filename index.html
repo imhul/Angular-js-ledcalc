@@ -54,19 +54,20 @@
   <main class="container row" ng-controller="MainController as vm" ng-cloak>
 
     <!-- Print section -->
-
-    <div class="container print-fix" print-section>
-      <div class="row">
-        <div class="col s4">
-          <a href="http://ekta.ua/">
-            <img src="assets/img/logo.png" width="142">
-          </a>
+    <div print-section>
+      <div class="container print-fix">
+        <div class="row">
+          <div class="col s4">
+            <a href="http://ekta.ua/">
+              <img src="assets/img/logo.png" width="142">
+            </a>
+          </div>
+          <div class="col s4 center">
+            <h4>Result</h4>
+          </div>
         </div>
-        <div class="col s4 center">
-          <h4>LED Calculator Result</h4>
-        </div>
+        <result></result>
       </div>
-      <result></result>
     </div>
 
     <!-- Table Preview -->
