@@ -1,7 +1,7 @@
-<div class="collection" print-section print-avoid-break>
+<div class="collection">
     <p class="collection-item">Resolution
         <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].horizontalResolution*vm.calc_data.slider_horizontal }} x {{ vm.displays[vm.selectedIndex].verticalResolution*vm.calc_data.slider_vertical }} px</span></p>
+      {{ vm.displays[vm.selectedIndex].horizontalResolution * vm.calc_data.slider_horizontal }} x {{ vm.displays[vm.selectedIndex].verticalResolution * vm.calc_data.slider_vertical }} px</span></p>
     <p class="collection-item">Dimensions
         <span class="secondary-content">
       {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[vm.selectedIndex].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>

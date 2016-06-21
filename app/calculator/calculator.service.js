@@ -16,7 +16,7 @@ angular.module('CalcApp').service('Calculator', function() {
 
     this.calculate = function() {
 
-        console.log('current model is: ', this._selectedModel.maxBrightness);
+        // console.log('current model is: ', this._selectedModel);
 
         this.moduleSide = 0.387; // m
         this.moduleSquare = 0.15; // m*m
