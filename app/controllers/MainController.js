@@ -12,17 +12,38 @@
         );
 
         vm.calc_data = Calculator.data;
-        vm.humanHeight = 1.75;
+        vm.moduleSide = 0.387;
+        vm.moduleSquare = 0.15;
+        vm.tdSize = 50;
+        vm.humanHeight = vm.tdSize * 4.7;
 
-        vm.getDiagonal = function() {
-                return vm.diagonal = Math.sqrt(
-                    (Math.pow(
-                        (vm.calc_data.slider_horizontal * 0.387), 2)) +
-                    (Math.pow(
-                        (vm.calc_data.slider_vertical * 0.387), 2))
-                );
+        vm.getTdSize = function() {
+            if (vm.calc_data.slider_horizontal >= 10 || vm.calc_data.slider_vertical >= 11) {
+                return;
             }
-            // Aspect ratio filter
+        };
+
+        vm.tableWidth = (vm.calc_data.slider_horizontal * vm.tdSize) + (vm.calc_data.slider_horizontal - 1);
+        vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
+        vm.surface = vm.moduleAmt * vm.moduleSquare;
+        vm.diagonal = Math.sqrt((Math.pow((vm.calc_data.slider_horizontal * 0.387), 2)) + (Math.pow((vm.calc_data.slider_vertical * 0.387), 2)));
+
+        // TODO Применить imperialFactorFt и imperialFactorLb к результатам
+
+        // Функция пересчета результата в империческую систему (футы)
+        vm.imperialFactorFt = function(resultFt) {
+            if (vm.calc_data.is_imperial) {
+                return resultFt * 3.28084;
+            }
+        };
+        // Функция пересчета результата в империческую систему ()
+        vm.imperialFactorLb = function(resultLb) {
+            if (vm.calc_data.is_imperial) {
+                return resultLb * 2.2;
+            }
+        };
+
+        // Aspect ratio filter
         vm.getRatio = function() {
             if ((vm.calc_data.slider_horizontal * 0.387) / (vm.calc_data.slider_vertical * 0.387) > 1.6) {
                 return vm.ratio = "16:9";
@@ -44,7 +65,7 @@
         vm.byModel = function($index) {
             vm.selectedIndex = $index;
             Calculator.setModel(vm.displays[vm.selectedIndex]);
-            Calculator.calculate();
+            // Calculator.calculate();
         }
 
         // функция сортировки по location

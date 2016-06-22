@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="assets/css/materialize.min.css" rel="stylesheet" />
   <link href="assets/css/theme.css" rel="stylesheet" />
-  <link href="assets/css/print.css" rel="stylesheet" />
 
   <!-- Include the core AngularJS library -->
   <script src="assets/js/angular.min.js"></script>
@@ -32,7 +31,6 @@
 1) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
 3) Сделать привязку preview к человеческому росту
   (размеры таблицы и ячеек должны динамично меняться так, чтобы человеческая фигура и каждый экран менял размер, в зависимости от количества экранов по вертикали)
-4) Убрать из принта 1й и 3й листы
 5) Применить функции imperialFactor
 
  -->
@@ -58,7 +56,7 @@
       <div class="container print-fix">
         <div class="row">
           <div class="col s4">
-              <img src="assets/img/logo.png" width="142" style="margin:25px;">
+            <img src="assets/img/logo.png" width="142" style="margin:25px;">
           </div>
           <div class="col s4 center">
             <h4>Result</h4>
@@ -80,21 +78,20 @@
 
           <!-- PROJECT "HUMAN" -->
           <div class="human">
-            <i class="fa fa-male" aria-hidden="true" style="font-size:{{ 18.6 }}rem;"></i>
+            <i class="fa fa-male" aria-hidden="true" style="font-size:{{ vm.humanHeight }}px;"></i>
           </div>
           <!-- Preview Table -->
           <div class="table-wrapper">
-            <table class="preview" style="width:{{ (vm.calc_data.slider_horizontal*50) + (vm.calc_data.slider_horizontal-1) }}px">
+            <table class="preview" style="width:{{ vm.tableWidth }}px">
               <tbody>
-                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ 50 }}px;">
-                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ 50 }}px; height:{{ 50 }}px;"></td>
+                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ vm.tdSize }}px;">
+                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ vm.tdSize }}px; height:{{ vm.tdSize }}px;"></td>
                 </tr>
               </tbody>
             </table>
           </div>
           <!-- Vertical Ruler -->
           <div class="ruler-vertical">
-            <!-- style="height:{{ (vm.calc_data.slider_vertical * 50) + (vm.calc_data.slider_vertical-1) }}px;" -->
             <div>
               <i class="small material-icons">keyboard_arrow_up</i>
               <h5 class="">{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
@@ -106,9 +103,7 @@
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
-          <h5>
-                        {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
-                    </h5>
+          <h5>{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
           <i class="small material-icons">keyboard_arrow_right</i>
         </div>
       </div>
@@ -156,8 +151,8 @@
 
         <div class="card-reveal">
           <span class="card-title">
-                      <i class="material-icons right">close</i>
-                    </span>
+            <i class="material-icons right">close</i>
+          </span>
           <div class="valign-wrapper card-header grey-text text-darken-4">
             <i class="valign medium material-icons">widgets</i>
             <span class="valign">&nbsp;&nbsp;Result</span>

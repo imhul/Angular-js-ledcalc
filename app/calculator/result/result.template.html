@@ -7,16 +7,16 @@
       {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[vm.selectedIndex].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Diagonal
         <span class="secondary-content">
-      {{ vm.getDiagonal() | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
+      {{ vm.diagonal | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
     <p class="collection-item">Aspect ratio
         <span class="secondary-content">
       {{ vm.getRatio() }}</span></p>
     <p class="collection-item">Total LED tiles
         <span class="secondary-content">
-      {{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
+      {{ vm.moduleAmt }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
     <p class="collection-item">Surface
         <span class="secondary-content">
-      {{ vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical*0.15 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
+      {{ vm.surface | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
     <p class="collection-item">Max. power consumption
         <span class="secondary-content">
       {{ vm.displays[vm.selectedIndex].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
