@@ -82,7 +82,7 @@
           </div>
           <!-- Preview Table -->
           <div class="table-wrapper">
-            <table class="preview" style="width:{{ vm.tableWidth }}px">
+            <table class="preview">
               <tbody>
                 <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ vm.tdSize }}px;">
                   <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ vm.tdSize }}px; height:{{ vm.tdSize }}px;"></td>

@@ -109,41 +109,6 @@ footer {
 .buttons {
     margin: 10px 20px;
 }
-@media(max-width: 198px) {
-    .chip {
-        position: absolute;
-        top: 90px;
-        right: 0px;
-    }
-}
-@media(min-width: 199px) and (max-width: 247px) {
-    .chip {
-        position: absolute;
-        top: 70px;
-        right: 0px;
-    }
-}
-@media(min-width: 248px) and (max-width: 992px) {
-    .chip {
-        position: absolute;
-        top: 50px;
-        right: 0px;
-    }
-}
-@media(min-width: 993px) and (max-width: 1204px) {
-    .chip {
-        position: absolute;
-        top: 50px;
-        right: 0px;
-    }
-}
-@media(min-width: 1205px) {
-    .chip {
-        position: absolute;
-        top: 50px;
-        right: 0px;
-    }
-}
 .container {
     width: 80%;
 }
@@ -154,6 +119,8 @@ footer {
     overflow: hidden;
     box-sizing: border-box;
     display: block;
+    max-width: 509px;
+    max-height: 307px;
 }
 .preview tr {
     max-height: 50px;
@@ -171,10 +138,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  height: 307px;
+  overflow: hidden;
+  margin-bottom:0;
 }
 .preview-wrapper:nth-child(n+1) {
   margin: auto;
-  flex: 0 2 auto;
+  flex: 0 10 auto;
 }
 .card {
     margin: 0.5rem 0 1rem 0;

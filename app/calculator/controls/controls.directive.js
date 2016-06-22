@@ -49,7 +49,7 @@
                 $scope.$watch(checkForm, function(isPristine) {
 
                     if (!isPristine) {
-                        Calculator.calculate();
+                        // Calculator.calculate();
                         vm.form_of_stuff.$setPristine();
                     }
                 });
