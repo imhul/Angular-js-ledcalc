@@ -58,9 +58,7 @@
       <div class="container print-fix">
         <div class="row">
           <div class="col s4">
-            <a href="http://ekta.ua/">
-              <img src="assets/img/logo.png" width="142">
-            </a>
+              <img src="assets/img/logo.png" width="142" style="margin:25px;">
           </div>
           <div class="col s4 center">
             <h4>Result</h4>
@@ -72,7 +70,7 @@
 
     <!-- Table Preview -->
 
-    <div class="col s12 hide-on-med-and-down">
+    <div class="col s12 hide-on-med-and-down" print-remove>
       <div class="card-panel hoverable z-depth-1">
         <div class="card-header preview-header valign-wrapper">
           <i class="valign medium material-icons">remove_red_eye</i>
@@ -118,7 +116,7 @@
 
     <!-- Table Preview end, Select model begin -->
 
-    <div class="col s12 l4">
+    <div class="col s12 l4" print-remove>
       <div class="card hoverable">
         <div class="card-header card-content valign-wrapper">
           <i class="valign medium material-icons">extension</i>
@@ -134,7 +132,7 @@
 
     <!-- Select model end, front side - Tune begin -->
 
-    <div class="col s12 l8">
+    <div class="col s12 l8" print-remove>
       <div class="card hoverable">
         <div class="card-content">
           <div class="valign-wrapper card-header grey-text text-darken-4" ng-click="vm.renderSlider()">
@@ -181,7 +179,7 @@
 
   <!-- main end, footer begin -->
 
-  <footer class="page-footer blue-grey darken-3" ng-cloak>
+  <footer class="page-footer blue-grey darken-3" print-remove ng-cloak>
     <div class="container">
       <div class="row">
 
