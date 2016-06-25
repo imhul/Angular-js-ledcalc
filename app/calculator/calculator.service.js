@@ -14,7 +14,16 @@ angular.module('CalcApp').service('Calculator', function() {
         this._selectedModel = angular.copy(modelData);
     }
 
-    // this.calculate = function() {
+    Object.defineProperty(this, 'diagonal', {
+
+      get: function() {
+
+        return Math.random(100) * 100000;
+      }
+    })
+
+
+    this.calculate = function() {
     //
     //     console.log('current model is: ', this._selectedModel);
     //
@@ -37,5 +46,5 @@ angular.module('CalcApp').service('Calculator', function() {
     //             return resultLb * 2.2;
     //         }
     //     };
-    // }
+    }
 });

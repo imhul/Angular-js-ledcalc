@@ -12,6 +12,8 @@
         );
 
         vm.calc_data = Calculator.data;
+        vm.calcResult = Calculator.calculate();
+
         vm.moduleSide = 0.387;
         vm.moduleSquare = 0.15;
         vm.tdSize = 50;
@@ -26,7 +28,7 @@
         // vm.tableWidth = (vm.calc_data.slider_horizontal * vm.tdSize) + (vm.calc_data.slider_horizontal - 1);
         vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
         vm.surface = vm.moduleAmt * vm.moduleSquare;
-        vm.diagonal = Math.sqrt((Math.pow((vm.calc_data.slider_horizontal * 0.387), 2)) + (Math.pow((vm.calc_data.slider_vertical * 0.387), 2)));
+        vm.diagonal = Calculator.diagonal; //Math.sqrt((Math.pow((vm.calc_data.slider_horizontal * 0.387), 2)) + (Math.pow((vm.calc_data.slider_vertical * 0.387), 2)));
 
         // TODO Применить imperialFactorFt и imperialFactorLb к результатам
 
