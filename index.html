@@ -78,14 +78,16 @@
 
           <!-- PROJECT "HUMAN" -->
           <div class="human">
-            <i class="fa fa-male" aria-hidden="true" style="font-size:{{ vm.humanHeight }}px;"></i>
+            <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;"></i>
           </div>
           <!-- Preview Table -->
           <div class="table-wrapper">
             <table class="preview">
               <tbody>
-                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ vm.tdSize }}px;">
-                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ vm.tdSize }}px; height:{{ vm.tdSize }}px;"></td>
+                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ 50 - vm.calc_data.slider_horizontal }}px;">
+                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ 50 - vm.calc_data.slider_horizontal }}px;">
+                    <div></div>
+                  </td>
                 </tr>
               </tbody>
             </table>

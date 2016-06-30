@@ -120,16 +120,24 @@ footer {
     box-sizing: border-box;
     display: block;
     max-width: 509px;
-    max-height: 307px;
+    max-height: 509px;
 }
 .preview tr {
+    min-height: 1px;
     max-height: 50px;
 }
 .preview td {
     border-radius: 0;
     background-color: #03a9f4;
+    padding: 1px;
+}
+.preview td div{
     max-height: 50px;
+    min-height: 1px;
     max-width: 50px;
+    min-width: 1px;
+    margin: 0;
+    padding: 0;
 }
 .preview-header {
     margin: 10px 0 0 15px;
@@ -138,7 +146,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 307px;
+  min-height: 307px;
+  max-height: 509px;
   overflow: hidden;
   margin-bottom:0;
 }

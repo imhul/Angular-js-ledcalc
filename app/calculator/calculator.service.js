@@ -15,13 +15,16 @@ angular.module('CalcApp').service('Calculator', function() {
     }
 
     Object.defineProperty(this, 'diagonal', {
-
       get: function() {
-
-        return Math.random(100) * 100000;
+        return Math.sqrt((Math.pow((this.data.slider_horizontal * 0.387), 2)) + (Math.pow((this.data.slider_vertical * 0.387), 2)));
       }
     })
 
+    Object.defineProperty(this, 'humanHeight', {
+      get: function() {
+        return (this.data.slider_vertical * 5.09) * 4.7;
+      }
+    })
 
     this.calculate = function() {
     //

@@ -13,10 +13,10 @@
       {{ vm.getRatio() }}</span></p>
     <p class="collection-item">Total LED tiles
         <span class="secondary-content">
-      {{ vm.moduleAmt }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
+      {{ vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
     <p class="collection-item">Surface
         <span class="secondary-content">
-      {{ vm.surface | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
+      {{ 0.15 * vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
     <p class="collection-item">Max. power consumption
         <span class="secondary-content">
       {{ vm.displays[vm.selectedIndex].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>

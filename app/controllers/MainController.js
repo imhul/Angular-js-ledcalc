@@ -16,19 +16,17 @@
 
         vm.moduleSide = 0.387;
         vm.moduleSquare = 0.15;
+        vm.humanHeight = Calculator.humanHeight;
+        vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
+        vm.surface = vm.moduleAmt * vm.moduleSquare;
+        vm.diagonal = Calculator.diagonal;
         vm.tdSize = 50;
-        vm.humanHeight = vm.tdSize * 4.7;
 
         vm.getTdSize = function() {
             if (vm.calc_data.slider_horizontal >= 10 || vm.calc_data.slider_vertical >= 11) {
-                return;
+            return vm.tdSize + 1;
             }
         };
-
-        // vm.tableWidth = (vm.calc_data.slider_horizontal * vm.tdSize) + (vm.calc_data.slider_horizontal - 1);
-        vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
-        vm.surface = vm.moduleAmt * vm.moduleSquare;
-        vm.diagonal = Calculator.diagonal; //Math.sqrt((Math.pow((vm.calc_data.slider_horizontal * 0.387), 2)) + (Math.pow((vm.calc_data.slider_vertical * 0.387), 2)));
 
         // TODO Применить imperialFactorFt и imperialFactorLb к результатам
 
