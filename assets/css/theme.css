@@ -7,7 +7,7 @@ body {
     margin: 0 !important;
 }
 img:not(.logo) {
-    width: 80px;
+    width: 150px;
 }
 img {
     max-width: 100%;
@@ -19,7 +19,7 @@ nav {
     background-color: rgb(0, 92, 171);
     height: 90px;
     color: white;
-    margin: 0 0 25px 0;
+    margin: 0 0 1rem 0;
 }
 h2 {
     margin: 2.3rem 0 1.424rem 0;
@@ -33,9 +33,19 @@ i {
 footer {
     text-transform: uppercase;
 }
-.uk-comment-avatar {
+article {
+  display: inline-block;
+  margin: 0 1.5rem 0 0 !important;
+}
+/*.uk-comment-avatar {
     margin-right: 15px;
     float: left;
+}*/
+.collection .collection-item {
+    padding: 5px 20px;
+}
+.collection {
+    border: 0 none;
 }
 .uk-comment-title {
     margin: 5px 0 0 0;
@@ -50,12 +60,14 @@ footer {
 }
 .scrollable-box {
     box-sizing: border-box;
-    max-height: 580px;
-    min-height: 340px;
-    padding: 10px 1.6rem;
-    overflow: auto;
+    height: 300px;
+    padding: 5px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     resize: none;
+    white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
+    word-wrap: normal;
 }
 .logo {
     margin: 20px 0 0 20px;
@@ -110,7 +122,7 @@ footer {
     margin: 10px 20px;
 }
 .container {
-    width: 80%;
+    width: 96%;
 }
 .preview {
     border-collapse: separate;
@@ -155,13 +167,6 @@ footer {
   margin: auto;
   flex: 0 10 auto;
 }
-.card {
-    margin: 0.5rem 0 1rem 0;
-    height: 680px;
-}
-.collection {
-    border: 0 none;
-}
 .human {
     overflow: visible;
     position: relative;
@@ -173,8 +178,8 @@ footer {
 .card .card-content {
     padding: 20px 20px 5px;
 }
-.card-panel:not(article) {
-    padding-bottom: 0;
+.top-block {
+  height: 580px;
 }
 .ruler-vertical {
   /*height: 80px;*/

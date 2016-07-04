@@ -20,13 +20,6 @@
 </head>
 
 <!-- TODO
-
-1) Прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant)
-  и разобраться в классах в javascript, понять основы объектно-ориентированного программирования с целью уметь писать классы с методами и вызывать их
-
- -->
-
-<!-- TODO
 1) Прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant)
   и разобраться в классах в javascript, понять основы объектно-ориентированного программирования с целью уметь писать классы с методами и вызывать их
 2) Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
@@ -70,9 +63,9 @@
 
     <!-- Table Preview -->
 
-    <div class="col s12 hide-on-med-and-down" print-remove>
-      <div class="card-panel hoverable z-depth-1">
-        <div class="card-header preview-header valign-wrapper">
+    <div class="col s12 l6 top-block" print-remove>
+      <div class="card top-block hoverable z-depth-1">
+        <div class="card-header card-content valign-wrapper">
           <i class="valign medium material-icons">remove_red_eye</i>
           <span class="valign">&nbsp;&nbsp;Preview</span>
         </div>
@@ -113,31 +106,20 @@
       </div>
     </div>
 
-    <!-- Table Preview end, Select model begin -->
+    <!-- Table Preview end -->
 
-    <div class="col s12 l4" print-remove>
-      <div class="card hoverable">
-        <div class="card-header card-content valign-wrapper">
-          <i class="valign medium material-icons">extension</i>
-          <span class="valign">&nbsp;&nbsp;Models</span>
+    <div class="col s12 hide-on-large-only" style="height: 1.5rem;"></div>
+
+    <!-- front side - Tune begin -->
+
+    <div class="col s12 l6" print-remove>
+      <div class="card top-block hoverable">
+
+        <div class="card-header card-content valign-wrapper" ng-click="vm.renderSlider()">
+          <i class="valign medium material-icons">tune</i>
+          <span class="valign">&nbsp;&nbsp;Tune</span>
         </div>
-        <div class="scrollable-box">
-          <article style="cursor:pointer;" class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays track by $index" ng-click="vm.byModel($index)" ng-class="{'light-green lighten-3': $index === vm.selectedIndex}">
-            <models></models>
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <!-- Select model end, front side - Tune begin -->
-
-    <div class="col s12 l8" print-remove>
-      <div class="card hoverable">
         <div class="card-content">
-          <div class="valign-wrapper card-header grey-text text-darken-4" ng-click="vm.renderSlider()">
-            <i class="valign medium material-icons">tune</i>
-            <span class="valign">&nbsp;&nbsp;Tune</span>
-          </div>
           <controls></controls>
 
           <!-- activator -->
@@ -157,7 +139,7 @@
           <span class="card-title">
             <i class="material-icons right">close</i>
           </span>
-          <div class="valign-wrapper card-header grey-text text-darken-4">
+          <div class="card-header card-content valign-wrapper">
             <i class="valign medium material-icons">widgets</i>
             <span class="valign">&nbsp;&nbsp;Result</span>
           </div>
@@ -165,7 +147,7 @@
           <div class="valign-wrapper">
             <div class="container valign center-align">
               <a print-btn class="waves-effect waves-light btn light-blue">Print</a>
-              <a href="http://ekta.com.ua/en/contacts" class="waves-effect waves-light btn red lighten-1">Get a quote</a>
+              <a href="http://ekta.com.ua/en/contacts-office-in-kyiv" class="waves-effect waves-light btn red lighten-1">Get a quote</a>
             </div>
           </div>
         </div>
@@ -174,6 +156,25 @@
       <!-- back side - Result end -->
 
     </div>
+
+    <!--Select model begin -->
+
+    <div class="col s12" print-remove>
+      <div class="card hoverable">
+        <div class="card-header card-content valign-wrapper">
+          <i class="valign medium material-icons">extension</i>
+          <span class="valign">&nbsp;&nbsp;Models</span>
+        </div>
+        <div class="scrollable-box center">
+          <article style="cursor:pointer;" class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays track by $index" ng-click="vm.byModel($index)" ng-class="{'light-green lighten-3': $index === vm.selectedIndex}">
+            <models></models>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Select model end -->
+
   </main>
 
   <!-- main end, footer begin -->
