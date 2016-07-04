@@ -41,6 +41,15 @@ article {
     margin-right: 15px;
     float: left;
 }*/
+input[type=text] {
+  font-size: 1.5rem;
+}
+.input-horizontal {
+
+}
+.input-vertical {
+  width: 25px !important;
+}
 .collection .collection-item {
     padding: 5px 20px;
 }

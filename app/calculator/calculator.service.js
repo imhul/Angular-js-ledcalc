@@ -5,7 +5,8 @@ angular.module('CalcApp').service('Calculator', function() {
         is_imperial: false,
         is_rental: false,
         slider_vertical: 6,
-        slider_horizontal: 10
+        slider_horizontal: 10,
+        viewing_distance: 20
     };
 
     this._selectedModel = null; // Начальное состояние, модель не выбрана

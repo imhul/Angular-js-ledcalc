@@ -38,6 +38,20 @@
                                 Calculator.data.slider_vertical = arguments[1]
                             }
                         }
+                    },
+                    distance: {
+                        value: 20,
+                        options: {
+                            floor: 1,
+                            ceil: 100,
+                            showSelectionBar: true,
+                            translate: function(value) {
+                                return 'Viewing distance: ' + value;
+                            },
+                            onEnd: function() {
+                                Calculator.data.viewing_distance = arguments[1]
+                            }
+                        }
                     }
                 };
 

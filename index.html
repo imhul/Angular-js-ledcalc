@@ -91,7 +91,13 @@
           <div class="ruler-vertical">
             <div>
               <i class="small material-icons">keyboard_arrow_up</i>
-              <h5 class="">{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
+              <input
+                type="text"
+                value="{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }}"
+                class="input-vertical"
+                maxlength="3"
+                max="100">
+                {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
               <i class="small material-icons">keyboard_arrow_down</i>
             </div>
           </div>
@@ -100,7 +106,13 @@
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
-          <h5>{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}&nbsp;{{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</h5>
+          <input
+            type="text"
+            value="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}"
+            class="input-horizontal"
+            maxlength="3"
+            max="100">
+            {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
           <i class="small material-icons">keyboard_arrow_right</i>
         </div>
       </div>
