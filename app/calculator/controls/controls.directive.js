@@ -15,7 +15,7 @@
                         value: 6,
                         options: {
                             floor: 1,
-                            ceil: 100,
+                            ceil: 60,
                             showSelectionBar: true,
                             translate: function(value) {
                                 return 'Tiles horizontal: ' + value;
@@ -29,7 +29,7 @@
                         value: 10,
                         options: {
                             floor: 1,
-                            ceil: 100,
+                            ceil: 60,
                             showSelectionBar: true,
                             translate: function(value) {
                                 return 'Tiles vertical: ' + value;

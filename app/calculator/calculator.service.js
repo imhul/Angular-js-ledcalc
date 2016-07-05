@@ -23,7 +23,7 @@ angular.module('CalcApp').service('Calculator', function() {
 
     Object.defineProperty(this, 'humanHeight', {
       get: function() {
-        return (this.data.slider_vertical * 5.09) * 4.7;
+        return (this.data.slider_vertical * 4) * 4.7;
       }
     })
 

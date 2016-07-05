@@ -50,6 +50,23 @@ input[type=text] {
 .input-vertical {
   width: 25px !important;
 }
+.tooltip {
+    display: inline-block;
+    position: relative; /* Относительное позиционирование */
+}
+.tooltip:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    position: absolute;
+    left: 20%; top: 30%;
+    width: 350px;
+    height: 70px;
+    z-index: 10;
+    background: rgb(0, 92, 171);
+    font-size: 1rem;
+    padding: 15px;
+    border: none;
+    color: #fff;
+}
 .collection .collection-item {
     padding: 5px 20px;
 }
@@ -167,19 +184,17 @@ input[type=text] {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  min-height: 307px;
-  max-height: 509px;
+  max-height: 400px;
   overflow: hidden;
   margin-bottom:0;
 }
 .preview-wrapper:nth-child(n+1) {
-  margin: auto;
+  margin: 0 20px;
   flex: 0 10 auto;
 }
 .human {
     overflow: visible;
     position: relative;
-    margin-right: -20px;
 }
 .human i {
     color: #536dfe;

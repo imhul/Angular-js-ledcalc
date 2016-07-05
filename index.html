@@ -72,7 +72,7 @@
         <div class="preview-wrapper" style="margin-bottom:0;">
 
           <!-- PROJECT "HUMAN" -->
-          <div class="human">
+          <div class="human" style="margin-right:{{  }}">
             <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;"></i>
           </div>
           <!-- Preview Table -->
@@ -91,13 +91,7 @@
           <div class="ruler-vertical">
             <div>
               <i class="small material-icons">keyboard_arrow_up</i>
-              <input
-                type="text"
-                value="{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }}"
-                class="input-vertical"
-                maxlength="3"
-                max="100">
-                {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+              <input type="text" value="{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }}" class="input-vertical" maxlength="3" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
               <i class="small material-icons">keyboard_arrow_down</i>
             </div>
           </div>
@@ -106,13 +100,7 @@
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
-          <input
-            type="text"
-            value="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}"
-            class="input-horizontal"
-            maxlength="3"
-            max="100">
-            {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+          <input type="text" value="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}" class="input-horizontal" maxlength="3" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
           <i class="small material-icons">keyboard_arrow_right</i>
         </div>
       </div>
@@ -155,13 +143,15 @@
             <i class="valign medium material-icons">widgets</i>
             <span class="valign">&nbsp;&nbsp;Result</span>
           </div>
-          <result></result>
-          <div class="valign-wrapper">
-            <div class="container valign center-align">
-              <a print-btn class="waves-effect waves-light btn light-blue">Print</a>
-              <a href="http://ekta.com.ua/en/contacts-office-in-kyiv" class="waves-effect waves-light btn red lighten-1">Get a quote</a>
+          <form>
+            <result></result>
+            <div class="valign-wrapper">
+              <div class="container valign center-align">
+                <a print-btn class="waves-effect waves-light btn light-blue">Print</a>
+                <a href="http://ekta.com.ua/en/contacts-office-in-kyiv" class="waves-effect waves-light btn red lighten-1">Get a quote</a>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
