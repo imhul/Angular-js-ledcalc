@@ -143,12 +143,16 @@
             <i class="valign medium material-icons">widgets</i>
             <span class="valign">&nbsp;&nbsp;Result</span>
           </div>
-          <form>
+          <form id="result-form" name="submitter" method="post" action="mailto:office@ekta.ua">
             <result></result>
             <div class="valign-wrapper">
               <div class="container valign center-align">
                 <a print-btn class="waves-effect waves-light btn light-blue">Print</a>
-                <a href="http://ekta.com.ua/en/contacts-office-in-kyiv" class="waves-effect waves-light btn red lighten-1">Get a quote</a>
+                <!-- <a href="http://ekta.com.ua/en/contacts-office-in-kyiv" class="waves-effect waves-light btn red lighten-1">Get a quote</a> -->
+                <input name="email" id="email" type="email" placeholder="exemple@exemple.com" class="validate">
+                <button name="submit" type="submit" class="waves-effect waves-light btn red lighten-1">
+                  Get a quote
+                </button>
               </div>
             </div>
           </form>

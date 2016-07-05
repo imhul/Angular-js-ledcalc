@@ -1,41 +1,42 @@
 <div class="collection">
-    <p class="collection-item">Resolution
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].horizontalResolution * vm.calc_data.slider_horizontal }} x {{ vm.displays[vm.selectedIndex].verticalResolution * vm.calc_data.slider_vertical }} px</span></p>
-    <p class="collection-item">Dimensions
-        <span class="secondary-content">
-      {{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[vm.selectedIndex].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
-    <p class="collection-item">Diagonal
-        <span class="secondary-content">
-      {{ vm.diagonal | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
-    <p class="collection-item">Aspect ratio
-        <span class="secondary-content">
-      {{ vm.getRatio() }}</span></p>
-    <p class="collection-item">Total LED tiles
-        <span class="secondary-content">
-      {{ vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})</span></p>
-    <p class="collection-item">Surface
-        <span class="secondary-content">
-      {{ 0.15 * vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}<sup>2</sup></span></p>
-    <p class="collection-item">Max. power consumption
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
-    <p class="collection-item">Typ. power consumption
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].avgPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} W</span></p>
-    <p class="collection-item">Weight without steel
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].weight*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} {{ vm.calc_data.is_imperial ? 'lb' : 'kg' }}</span></p>
-    <p class="collection-item">Min. viewing distance
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].pixelPitch * 0.9 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
-    <p class="collection-item">Max. viewing distance
-        <span class="secondary-content">
-      {{ vm.calc_data.slider_vertical*30*0.3864 | number:0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}</span></p>
-    <p class="collection-item">Calibrated brightness
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].minBrightness }} NIT</span></p>
-    <p class="collection-item">Max. brightness
-        <span class="secondary-content">
-      {{ vm.displays[vm.selectedIndex].maxBrightness }} NIT</span></p>
+  <p class="collection-item">Resolution
+    <input name="Resolution" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].horizontalResolution * vm.calc_data.slider_horizontal }} x {{ vm.displays[vm.selectedIndex].verticalResolution * vm.calc_data.slider_vertical }} px" readonly>
+  </p>
+  <p class="collection-item">Dimensions
+    <input name="Dimensions" type="text" class="secondary-content" placeholder="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }} x {{ vm.calc_data.slider_vertical * 0.3864 | number:2 }} x {{ vm.displays[vm.selectedIndex].thickness }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}"
+        readonly>
+  </p>
+  <p class="collection-item">Diagonal
+    <input name="Diagonal" type="text" class="secondary-content" placeholder="{{ vm.diagonal | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}" readonly>
+  </p>
+  <p class="collection-item">Aspect ratio
+    <input name="Aspect ratio" type="text" class="secondary-content" placeholder="{{ vm.getRatio() }}" readonly>
+  </p>
+  <p class="collection-item">Total LED tiles
+    <input name="Total LED tiles" type="text" class="secondary-content" placeholder="{{ vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical }}({{ vm.calc_data.slider_horizontal }} x {{ vm.calc_data.slider_vertical }})" readonly>
+  </p>
+  <p class="collection-item">Surface
+    <input name="Surface" type="text" class="secondary-content" placeholder="{{ 0.15 * vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical | number:1 }} {{ vm.calc_data.is_imperial ? 'ft<sup>2</sup>' : 'm<sup>2</sup>' }}" readonly>
+  </p>
+  <p class="collection-item">Max. power consumption
+    <input name="Max. power consumption" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].maxPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} kW" readonly>
+  </p>
+  <p class="collection-item">Typ. power consumption
+    <input name="Typ. power consumption" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].avgPowerConsumption*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} kW" readonly>
+  </p>
+  <p class="collection-item">Weight without steel
+    <input name="Weight without steel" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].weight*(vm.calc_data.slider_horizontal*vm.calc_data.slider_vertical) | number:0 }} {{ vm.calc_data.is_imperial ? 'lb' : 'kg' }}" readonly>
+  </p>
+  <p class="collection-item">Min. viewing distance
+    <input name="Min. viewing distance" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].pixelPitch * 0.9 | number:1 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}" readonly>
+  </p>
+  <p class="collection-item">Max. viewing distance
+    <input name=">Max. viewing distance" type="text" class="secondary-content" placeholder="{{ vm.calc_data.slider_vertical*30*0.3864 | number:0 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}" readonly>
+  </p>
+  <p class="collection-item">Calibrated brightness
+    <input name="Calibrated brightness" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].minBrightness }} NIT" readonly>
+  </p>
+  <p class="collection-item">Max. brightness
+    <input name="Max. brightness" type="text" class="secondary-content" placeholder="{{ vm.displays[vm.selectedIndex].maxBrightness }} NIT" readonly>
+  </p>
 </div>
