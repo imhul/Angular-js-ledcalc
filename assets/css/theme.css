@@ -34,30 +34,48 @@ footer {
     text-transform: uppercase;
 }
 article {
-  display: inline-block;
-  margin: 0 1.5rem 0 0 !important;
+    display: inline-block;
+    margin: 0 1.5rem 0 0 !important;
 }
-/*.uk-comment-avatar {
-    margin-right: 15px;
-    float: left;
-}*/
 input[type=text] {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
-.input-horizontal {
-
+input[type=email] {
+    margin-bottom: 0;
+    width: auto;
 }
+input[type=email]:focus:not([readonly]) {
+  border-bottom: 1px solid #ef5350;
+  box-shadow: 0 1px 0 0 #ef5350;
+}
+.submitter input[type=text] {
+    font-size: 1rem;
+    line-height: 0.5rem;
+    border-bottom: none;
+    background-color: transparent;
+    outline: none;
+    height: 1.3rem;
+    width: 155px;
+    font-size: 1rem;
+    margin: 0;
+    padding: 1px 0;
+    transition: all 0.3s;
+    float: right;
+    text-align: right;
+}
+.input-horizontal {}
 .input-vertical {
-  width: 25px !important;
+    width: 25px !important;
 }
 .tooltip {
     display: inline-block;
-    position: relative; /* Относительное позиционирование */
+    position: relative;
 }
 .tooltip:hover::after {
-    content: attr(data-title); /* Выводим текст */
+    content: attr(data-title);
     position: absolute;
-    left: 20%; top: 30%;
+    left: 20%;
+    top: 30%;
     width: 350px;
     height: 70px;
     z-index: 10;
@@ -67,11 +85,15 @@ input[type=text] {
     border: none;
     color: #fff;
 }
+.toast {
+    padding: 20px 35px;
+    font-size: 2rem;
+}
 .collection .collection-item {
     padding: 5px 20px;
 }
 .collection {
-    border: 0 none;
+    border: none;
 }
 .uk-comment-title {
     margin: 5px 0 0 0;
@@ -92,7 +114,8 @@ input[type=text] {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     resize: none;
-    white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
+    /* Выравнивание всех элементов в одну линию, не переходя на другую строку */
+    white-space: nowrap;
     word-wrap: normal;
 }
 .logo {
@@ -169,7 +192,7 @@ input[type=text] {
     background-color: #03a9f4;
     padding: 1px;
 }
-.preview td div{
+.preview td div {
     max-height: 50px;
     min-height: 1px;
     max-width: 50px;
@@ -181,16 +204,16 @@ input[type=text] {
     margin: 10px 0 0 15px;
 }
 .preview-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  max-height: 400px;
-  overflow: hidden;
-  margin-bottom:0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    max-height: 400px;
+    overflow: hidden;
+    margin-bottom: 0;
 }
 .preview-wrapper:nth-child(n+1) {
-  margin: 0 20px;
-  flex: 0 10 auto;
+    margin: 0 20px;
+    flex: 0 10 auto;
 }
 .human {
     overflow: visible;
@@ -203,12 +226,12 @@ input[type=text] {
     padding: 20px 20px 5px;
 }
 .top-block {
-  height: 580px;
+    height: 580px;
 }
 .ruler-vertical {
-  /*height: 80px;*/
-  align-self: center;
-  padding-left: 20px;
+    /*height: 80px;*/
+    align-self: center;
+    padding-left: 20px;
 }
 .ruler-horizontal {
     background-color: #fff !important;

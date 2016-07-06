@@ -143,16 +143,24 @@
             <i class="valign medium material-icons">widgets</i>
             <span class="valign">&nbsp;&nbsp;Result</span>
           </div>
-          <form id="result-form" name="submitter" method="post" action="mailto:office@ekta.ua">
+          <form class="submitter" name="submitter" method="post" enctype="text/plain" action="mailto:office@ekta.ua?subject=Led-Calculator-Request">
             <result></result>
             <div class="valign-wrapper">
               <div class="container valign center-align">
-                <a print-btn class="waves-effect waves-light btn light-blue">Print</a>
-                <!-- <a href="http://ekta.com.ua/en/contacts-office-in-kyiv" class="waves-effect waves-light btn red lighten-1">Get a quote</a> -->
-                <input name="email" id="email" type="email" placeholder="exemple@exemple.com" class="validate">
-                <button name="submit" type="submit" class="waves-effect waves-light btn red lighten-1">
-                  Get a quote
-                </button>
+                <div class="row">
+                  <div class="col s5">
+                    <i class="material-icons prefix" style="float:left;">mode_edit</i>
+                    <input name="email" tabindex="2" type="email" placeholder="exemple@exemple.com" class="validate">
+                  </div>
+                  <div class="col s4">
+                    <button tabindex="3" type="submit" class="waves-effect waves-light btn red lighten-1" onclick="Materialize.toast('Wait a few seconds', 4000)">
+                      Get a quote
+                    </button>
+                  </div>
+                  <div class="col s3">
+                    <a print-btn tabindex="1" class="waves-effect waves-light btn light-blue">Print</a>
+                  </div>
+                </div>
               </div>
             </div>
           </form>
