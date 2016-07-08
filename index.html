@@ -66,14 +66,15 @@
     <div class="col s12 l6 top-block" print-remove>
       <div class="card top-block hoverable z-depth-1">
         <div class="card-header card-content valign-wrapper">
-          <i class="valign medium material-icons">remove_red_eye</i>
+          <i class="valign material-icons">remove_red_eye</i>
           <span class="valign">&nbsp;&nbsp;Preview</span>
         </div>
         <div class="preview-wrapper" style="margin-bottom:0;">
 
           <!-- PROJECT "HUMAN" -->
-          <div class="human" style="margin-right:{{  }}">
-            <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;"></i>
+          <div class="human" style="margin-right:{{ 20 }}px;">
+            <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;"></i> -->
+            <img src="assets/img/man.svg" aria-hidden="true" style="width:auto; height:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;" alt="Human">
           </div>
           <!-- Preview Table -->
           <div class="table-wrapper">
@@ -91,7 +92,7 @@
           <div class="ruler-vertical">
             <div>
               <i class="small material-icons">keyboard_arrow_up</i>
-              <input type="text" value="{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }}" class="input-vertical" maxlength="3" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+              <input type="text" value="{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }}" class="input-vertical" maxlength="4" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
               <i class="small material-icons">keyboard_arrow_down</i>
             </div>
           </div>
@@ -100,7 +101,7 @@
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
-          <input type="text" value="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}" class="input-horizontal" maxlength="3" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+          <input type="text" value="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}" class="input-horizontal" maxlength="4" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
           <i class="small material-icons">keyboard_arrow_right</i>
         </div>
       </div>
@@ -116,7 +117,7 @@
       <div class="card top-block hoverable">
 
         <div class="card-header card-content valign-wrapper" ng-click="vm.renderSlider()">
-          <i class="valign medium material-icons">tune</i>
+          <i class="valign material-icons">tune</i>
           <span class="valign">&nbsp;&nbsp;Tune</span>
         </div>
         <div class="card-content">
@@ -140,7 +141,7 @@
             <i class="material-icons right">close</i>
           </span>
           <div class="card-header card-content valign-wrapper">
-            <i class="valign medium material-icons">widgets</i>
+            <i class="valign material-icons">widgets</i>
             <span class="valign">&nbsp;&nbsp;Result</span>
           </div>
           <form class="submitter" name="submitter" method="post" enctype="text/plain" action="mailto:office@ekta.ua?subject=Led-Calculator-Request">
@@ -152,12 +153,12 @@
                     <i class="material-icons prefix" style="float:left;">mode_edit</i>
                     <input name="email" tabindex="2" type="email" placeholder="exemple@exemple.com" class="validate">
                   </div>
-                  <div class="col s4">
+                  <div class="col s4 margin-top-5">
                     <button tabindex="3" type="submit" class="waves-effect waves-light btn red lighten-1" onclick="Materialize.toast('Wait a few seconds', 4000)">
                       Get a quote
                     </button>
                   </div>
-                  <div class="col s3">
+                  <div class="col s3 margin-top-5">
                     <a print-btn tabindex="1" class="waves-effect waves-light btn light-blue">Print</a>
                   </div>
                 </div>
@@ -176,7 +177,7 @@
     <div class="col s12" print-remove>
       <div class="card hoverable">
         <div class="card-header card-content valign-wrapper">
-          <i class="valign medium material-icons">extension</i>
+          <i class="valign material-icons">extension</i>
           <span class="valign">&nbsp;&nbsp;Models</span>
         </div>
         <div class="scrollable-box center">

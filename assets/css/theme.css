@@ -106,6 +106,9 @@ input[type=email]:focus:not([readonly]) {
     line-height: 16px;
     color: #999999;
 }
+.margin-top-5 {
+  margin-top: 5px;
+}
 .scrollable-box {
     box-sizing: border-box;
     height: 300px;
@@ -226,7 +229,7 @@ input[type=email]:focus:not([readonly]) {
     padding: 20px 20px 5px;
 }
 .top-block {
-    height: 580px;
+    height: 570px;
 }
 .ruler-vertical {
     /*height: 80px;*/
