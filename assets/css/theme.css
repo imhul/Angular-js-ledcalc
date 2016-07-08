@@ -28,7 +28,7 @@ nav .brand-logo {
     font-size: 1.8rem;
 }
 i {
-    color: #03a9f4;
+    color: #039be5;
 }
 footer {
     text-transform: uppercase;
@@ -36,6 +36,10 @@ footer {
 article {
     display: inline-block;
     margin: 0 1.5rem 0 0 !important;
+}
+article:hover {
+  background-color: #039be5 !important;
+  color: #ffffff;
 }
 input[type=text] {
     font-size: 1.5rem;
@@ -100,11 +104,14 @@ input[type=email]:focus:not([readonly]) {
     font-size: 16px;
     line-height: 22px;
 }
-.uk-comment-meta {
+.uk-comment-meta:not(article:hover) {
     margin: 2px 0 0 0;
     font-size: 11px;
     line-height: 16px;
     color: #999999;
+}
+.white-text .uk-comment-meta {
+    color: #ffffff;
 }
 .margin-top-5 {
   margin-top: 5px;
@@ -165,7 +172,7 @@ input[type=email]:focus:not([readonly]) {
     margin: 30px auto !important;
 }
 .switch label .lever:after {
-    background-color: #0db9f0;
+    background-color: #039be5;
 }
 .switch label .lever {
     background-color: #81d4fa;
@@ -192,7 +199,7 @@ input[type=email]:focus:not([readonly]) {
 }
 .preview td {
     border-radius: 0;
-    background-color: #03a9f4;
+    background-color: #01579b;
     padding: 1px;
 }
 .preview td div {
@@ -222,7 +229,7 @@ input[type=email]:focus:not([readonly]) {
     overflow: visible;
     position: relative;
 }
-.human i {
+.human img {
     color: #536dfe;
 }
 .card .card-content {
@@ -245,7 +252,7 @@ input[type=email]:focus:not([readonly]) {
 .ruler-vertical .hr-vert {
     border: 0;
     height: 100%;
-    border-left: 5px dashed #03a9f4;
+    border-left: 5px dashed #039be5;
     background-color: #fff !important;
     display: inline;
     position: absolute;
@@ -309,7 +316,7 @@ rzslider .rz-bar {
 }
 rzslider .rz-bar.rz-selection {
     z-index: 2;
-    background: #0db9f0;
+    background: #039be5;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -320,7 +327,7 @@ rzslider .rz-pointer {
     width: 32px;
     height: 32px;
     cursor: pointer;
-    background-color: #0db9f0;
+    background-color: #039be5;
     -webkit-border-radius: 16px;
     -moz-border-radius: 16px;
     border-radius: 16px;
@@ -385,7 +392,7 @@ rzslider .rz-ticks .rz-tick {
     border-radius: 50%;
 }
 rzslider .rz-ticks .rz-tick.rz-selected {
-    background: #0db9f0;
+    background: #039be5;
 }
 rzslider .rz-ticks .rz-tick .rz-tick-value {
     position: absolute;
