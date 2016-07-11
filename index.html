@@ -73,16 +73,16 @@
 
           <!-- PROJECT "HUMAN" -->
           <div class="human" style="margin-right:{{ 20 }}px;">
-            <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;"></i> -->
-            <img src="assets/img/man.svg" aria-hidden="true" style="width:auto; height:{{ (50 - vm.calc_data.slider_vertical) * 4.7 }}px;" alt="Human">
+            <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;"></i> -->
+            <img src="assets/img/man.svg" aria-hidden="true" style="width:auto; height:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;" alt="Human">
           </div>
           <!-- Preview Table -->
           <div class="table-wrapper">
             <table class="preview">
               <tbody>
-                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index" style="height:{{ 50 - vm.calc_data.slider_horizontal }}px;">
-                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index" style="width:{{ 50 - vm.calc_data.slider_horizontal }}px;">
-                    <div></div>
+                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index">
+                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index">
+                    <div style="height:{{ 50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal) }}px; width:{{ 50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal) }}px;"></div>
                   </td>
                 </tr>
               </tbody>
