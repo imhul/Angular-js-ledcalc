@@ -43,6 +43,15 @@
             }
         };
 
+        vm.getDiagonal = function() {
+            return vm.diagonal = Math.sqrt(
+                (Math.pow(
+                    (vm.calc_data.slider_horizontal * 0.387), 2)) +
+                (Math.pow(
+                    (vm.calc_data.slider_vertical * 0.387), 2))
+            );
+        };
+
         // Aspect ratio filter
 
         function gcd(a, b) {
@@ -51,17 +60,17 @@
             } else {
                 return Math.abs(a);
             }
-        }
+        };
+
+
 
         vm.getRatio = function() {
 
-                return vm.ratio =
-                Math.round(vm.calc_data.slider_horizontal / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical))
-                + ":" +
+            return vm.ratio =
+                Math.round(vm.calc_data.slider_horizontal / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical)) +
+                ":" +
                 Math.round(vm.calc_data.slider_vertical / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical));
-
-
-            // console.log('Recursive: ' + gcd_rec(59, 78));
+                // console.log('Recursive: ' + gcd_rec(59, 78));
 
             // function gcd(a, b) {
             //     if (a < 0) a = -a;

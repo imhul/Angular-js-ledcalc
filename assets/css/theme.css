@@ -24,6 +24,11 @@ nav {
 h2 {
     margin: 2.3rem 0 1.424rem 0;
 }
+h4 {
+  margin: 20px auto 5px auto;
+  color: rgba(0,0,0,0.87);
+  padding-top: 20px !important;
+}
 nav .brand-logo {
     font-size: 1.8rem;
 }
@@ -230,6 +235,11 @@ input[type=email]:focus:not([readonly]) {
 }
 .top-block {
     height: 570px;
+}
+@media screen and (max-width: 992px) {
+  .top-block {
+      height: 630px;
+  }
 }
 .ruler-horizontal {
     background-color: #fff !important;

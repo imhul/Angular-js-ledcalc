@@ -14,9 +14,9 @@
   </span>
   </p>
   <p class="collection-item">Diagonal
-    <input name="Diagonal" type="hidden" value="{{ vm.diagonal | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}" readonly>
+    <input name="Diagonal" type="hidden" value="{{ vm.getDiagonal() | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}" readonly>
     <span class="secondary-content">
-      {{ vm.diagonal | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+      {{ vm.getDiagonal() | number:2 }} {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
   </span>
   </p>
   <p class="collection-item">Aspect ratio
