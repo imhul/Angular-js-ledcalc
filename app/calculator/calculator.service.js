@@ -21,11 +21,11 @@ angular.module('CalcApp').service('Calculator', function() {
       }
     })
 
-    Object.defineProperty(this, 'humanHeight', {
-      get: function() {
-        return (this.data.slider_vertical * 4) * 4.7;
-      }
-    })
+    // Object.defineProperty(this, 'humanHeight', {
+    //   get: function() {
+    //     return (this.data.slider_vertical * 4) * 4.7;
+    //   }
+    // })
 
     this.calculate = function() {
     //

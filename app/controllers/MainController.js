@@ -24,7 +24,7 @@
 
         vm.getTdSize = function() {
             if (vm.calc_data.slider_horizontal >= 10 || vm.calc_data.slider_vertical >= 11) {
-            return vm.tdSize + 1;
+                return vm.tdSize + 1;
             }
         };
 
@@ -44,12 +44,41 @@
         };
 
         // Aspect ratio filter
-        vm.getRatio = function() {
-            if ((vm.calc_data.slider_horizontal * 0.387) / (vm.calc_data.slider_vertical * 0.387) > 1.6) {
-                return vm.ratio = "16:9";
+
+        function gcd(a, b) {
+            if (b) {
+                return gcd(b, a % b);
             } else {
-                return vm.ratio = "4:3";
+                return Math.abs(a);
             }
+        }
+
+        vm.getRatio = function() {
+
+                return vm.ratio =
+                Math.round(vm.calc_data.slider_horizontal / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical))
+                + ":" +
+                Math.round(vm.calc_data.slider_vertical / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical));
+
+
+            // console.log('Recursive: ' + gcd_rec(59, 78));
+
+            // function gcd(a, b) {
+            //     if (a < 0) a = -a;
+            //     if (b < 0) b = -b;
+            //     if (b > a) {
+            //         var temp = a;
+            //         a = b;
+            //         b = temp;
+            //     }
+            //     while (true) {
+            //         if (b == 0) return a;
+            //         a %= b;
+            //         if (a == 0) return b;
+            //         b %= a;
+            //     }
+            // }
+            // console.log('Iterative: ' + gcd(19, 37));
         };
 
         // Функция, задающая количество строк и столбцов таблицы, беря значения слайдеров.
