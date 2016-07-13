@@ -94,6 +94,15 @@ input[type=email]:focus:not([readonly]) {
 .collection .collection-item {
     padding: 5px 20px;
 }
+.tune .collection-item {
+    padding: 13px 20px;
+}
+.tune label {
+    font-size: 1.6rem;
+}
+.tune {
+    font-size: 1.2rem;
+}
 .collection {
     border: none;
 }
