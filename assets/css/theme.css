@@ -233,12 +233,15 @@ input[type=email]:focus:not([readonly]) {
 .card .card-content {
     padding: 20px 20px 5px;
 }
-.top-block {
+.top-block-left, .top-block-right {
     height: 570px;
 }
 @media screen and (max-width: 992px) {
-  .top-block {
+  .top-block-right {
       height: 630px;
+  }
+  .top-block-left {
+    height: 360px;
   }
 }
 .ruler-horizontal {

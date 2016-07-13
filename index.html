@@ -69,7 +69,7 @@
     <!-- Table Preview -->
 
     <div class="col s12 l6 top-block" print-remove>
-      <div class="card top-block hoverable z-depth-1">
+      <div class="card top-block-left hoverable z-depth-1">
         <div class="card-header card-content valign-wrapper">
           <i class="valign material-icons">remove_red_eye</i>
           <span class="valign">&nbsp;&nbsp;Preview</span>
@@ -114,12 +114,12 @@
 
     <!-- Table Preview end -->
 
-    <div class="col s12 hide-on-large-only" style="height: 1.5rem;"></div>
+    <!-- <div class="col s12 hide-on-large-only" style="height: 1.5rem;"></div> -->
 
     <!-- front side - Tune begin -->
 
     <div class="col s12 l6" print-remove>
-      <div class="card top-block hoverable">
+      <div class="card top-block-right hoverable">
 
         <div class="card-header card-content valign-wrapper" ng-click="vm.renderSlider()">
           <i class="valign material-icons">tune</i>
@@ -155,18 +155,18 @@
             <div class="valign-wrapper">
               <div class="container valign center-align">
                 <div class="row">
-                  <div class="col s12 m5 offset-m1 l5">
+                  <div class="col s12 m5">
                     <i class="material-icons prefix" style="float:left;">mode_edit</i>
                     <input name="email" tabindex="2" type="email" placeholder="exemple@exemple.com" class="validate">
                   </div>
-                  <div class="col s12 m4 l4 margin-top-5">
+                  <div class="col s12 m4 margin-top-5">
                     <br class="hide-on-med-and-up">
                     <button tabindex="3" type="submit" class="waves-effect waves-light btn red lighten-1" onclick="Materialize.toast('Wait a few seconds', 4000)">
                       Send
                     </button>
                   </div>
-                  <div class="col s12 m12 l3 margin-top-5 hide-on-small-only">
-                    <br class="hide-on-large-only">
+                  <div class="col s12 m3 margin-top-5 hide-on-small-only">
+                    <br class="hide-on-med-and-up">
                     <a print-btn tabindex="1" class="waves-effect waves-light btn light-blue darken-1">Print</a>
                   </div>
                 </div>
