@@ -15,11 +15,11 @@ angular.module('CalcApp').service('Calculator', function() {
         this._selectedModel = angular.copy(modelData);
     }
 
-    Object.defineProperty(this, 'diagonal', {
-        get: function() {
-            return Math.sqrt((Math.pow((this.data.slider_horizontal * 0.387), 2)) + (Math.pow((this.data.slider_vertical * 0.387), 2)));
-        }
-    })
+    // Object.defineProperty(this, 'diagonal', {
+    //     get: function() {
+    //         return Math.sqrt((Math.pow((this.data.slider_horizontal * 0.387), 2)) + (Math.pow((this.data.slider_vertical * 0.387), 2)));
+    //     }
+    // })
 
     // Object.defineProperty(this, 'humanHeight', {
     //   get: function() {
