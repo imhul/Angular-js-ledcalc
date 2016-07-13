@@ -70,7 +70,7 @@
                 Math.round(vm.calc_data.slider_horizontal / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical)) +
                 ":" +
                 Math.round(vm.calc_data.slider_vertical / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical));
-                // console.log('Recursive: ' + gcd_rec(59, 78));
+            // console.log('Recursive: ' + gcd_rec(59, 78));
 
             // function gcd(a, b) {
             //     if (a < 0) a = -a;

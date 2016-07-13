@@ -25,9 +25,9 @@ h2 {
     margin: 2.3rem 0 1.424rem 0;
 }
 h4 {
-  margin: 20px auto 5px auto;
-  color: rgba(0,0,0,0.87);
-  padding-top: 20px !important;
+    margin: 20px auto 5px auto;
+    color: rgba(0, 0, 0, 0.87);
+    padding-top: 20px !important;
 }
 nav .brand-logo {
     font-size: 1.8rem;
@@ -43,16 +43,16 @@ article {
     margin: 0 1.5rem 0 0 !important;
 }
 article:hover {
-  background-color: #039be5 !important;
-  color: #ffffff;
+    background-color: #039be5 !important;
+    color: #ffffff;
 }
 input[type=email] {
     margin-bottom: 0;
     width: auto;
 }
 input[type=email]:focus:not([readonly]) {
-  border-bottom: 1px solid #ef5350;
-  box-shadow: 0 1px 0 0 #ef5350;
+    border-bottom: 1px solid #ef5350;
+    box-shadow: 0 1px 0 0 #ef5350;
 }
 .submitter input[type=text] {
     font-size: 1rem;
@@ -112,12 +112,12 @@ input[type=email]:focus:not([readonly]) {
     color: #ffffff;
 }
 .margin-top-5 {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 .scrollable-box {
     box-sizing: border-box;
-    height: 300px;
-    padding: 5px 0;
+    height: 320px;
+    padding: 10px 20px;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -233,16 +233,27 @@ input[type=email]:focus:not([readonly]) {
 .card .card-content {
     padding: 20px 20px 5px;
 }
+.top-block-right .card-content {
+    /*padding: 0 0 5px;*/
+}
 .top-block-left, .top-block-right {
     height: 570px;
 }
-@media screen and (max-width: 992px) {
-  .top-block-right {
-      height: 630px;
-  }
-  .top-block-left {
-    height: 360px;
-  }
+@media screen and (max-width: 600px) {
+    .top-block-right {
+        height: 630px;
+    }
+    .top-block-left {
+        height: 360px;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 992px) {
+    .top-block-right {
+        height: 570px;
+    }
+    .top-block-left {
+        height: 360px;
+    }
 }
 .ruler-horizontal {
     background-color: #fff !important;
@@ -257,8 +268,8 @@ input[type=email]:focus:not([readonly]) {
     margin: 0 0 5px 0;
 }
 .ruler-vertical input:focus, .ruler-horizontal input:focus {
-  border-bottom: none !important;
-  box-shadow: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 .ruler-vertical {
     align-self: center;
