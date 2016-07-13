@@ -96,12 +96,13 @@ input[type=email]:focus:not([readonly]) {
 }
 .tune .collection-item {
     padding: 13px 20px;
+    line-height: 2rem;
 }
 .tune label {
     font-size: 1.6rem;
 }
 .tune {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 .collection {
     border: none;
@@ -227,6 +228,9 @@ input[type=email]:focus:not([readonly]) {
     overflow: hidden;
     margin-bottom: 0;
 }
+.preview-wrapper {
+    height: 220px;
+}
 .preview-wrapper:nth-child(n+1) {
     margin: 0 20px;
     flex: 0 10 auto;
@@ -238,17 +242,19 @@ input[type=email]:focus:not([readonly]) {
 .human img {
     color: #536dfe;
     min-height: 15px;
+    height: 15px;
+}
+.human img:not(attr(height) < 15px) {
+    color: #536dfe;
+    min-height: 15px;
 }
 .card .card-content {
     padding: 20px 20px 5px;
 }
-.top-block-right .card-content {
-    /*padding: 0 0 5px;*/
-}
 .top-block-left, .top-block-right {
     height: 570px;
 }
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     .top-block-right {
         height: 630px;
     }
@@ -256,7 +262,7 @@ input[type=email]:focus:not([readonly]) {
         height: 360px;
     }
 }
-@media screen and (min-width: 601px) and (max-width: 992px) {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
     .top-block-right {
         height: 570px;
     }
@@ -391,7 +397,7 @@ rzslider .rz-pointer.rz-active:after {
 rzslider .rz-bubble {
     bottom: 16px;
     padding: 1px 3px;
-    color: #55637d;
+    color: #9e9e9e;
     cursor: default;
 }
 rzslider .rz-bubble.rz-selection {
@@ -517,7 +523,7 @@ rzslider.rz-vertical .rz-ticks.rz-ticks-values-under .rz-tick-value {
     bottom: initial;
     left: initial;
 }
-@media screen {
+@media only screen {
     .printOnly, .printSection {
         display: none;
     }
