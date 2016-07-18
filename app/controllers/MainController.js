@@ -48,6 +48,11 @@
                    vm.calc_data.horizontal_dimension = (vm.calc_data.slider_horizontal * 0.3864).toFixed(2);
         }
 
+        vm.filterInput = function() {
+          var inputs = new RegExp(/[.]/);
+          return inputs.replace([,]);
+        }
+
         vm.getDiagonal = function() {
             vm.getDimensions();
             return vm.diagonal = Math.sqrt(

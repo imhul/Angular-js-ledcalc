@@ -76,7 +76,7 @@
           <span class="valign">&nbsp;&nbsp;Preview</span>
         </div>
         <div class="preview-wrapper" style="margin-bottom:0;">
-          
+
           <!-- PROJECT "HUMAN" -->
           <div class="human hide-on-small-only" style="margin-right:{{ 20 }}px;">
             <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;"></i> -->
@@ -103,7 +103,8 @@
                 name="vertical-dimension"
                 ng-model="vm.calc_data.vertical_dimension"
                 ng-change="vm.getDimensions()"
-                type="text"
+                type="number"
+                ng-pattern="vm.filterInput"
                 class="input-vertical"
                 maxlength="4"
                 max="100"
@@ -121,7 +122,8 @@
             name="horizontal-dimension"
             ng-model="vm.calc_data.horizontal_dimension"
             ng-change="vm.getDimensions()"
-            type="text"
+            type="number"
+            ng-pattern="vm.filterInput"
             class="input-horizontal"
             maxlength="4"
             max="100"
