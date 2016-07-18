@@ -6,7 +6,9 @@ angular.module('CalcApp').service('Calculator', function() {
         is_rental: false,
         slider_vertical: 6,
         slider_horizontal: 10,
-        viewing_distance: 20
+        viewing_distance: 20,
+        vertical_dimension: 2.32,
+        horizontal_dimension: 3.86
     };
 
     this._selectedModel = null; // Начальное состояние, модель не выбрана
@@ -28,6 +30,7 @@ angular.module('CalcApp').service('Calculator', function() {
     // })
 
     this.calculate = function() {
+    
         //
         //     console.log('current model is: ', this._selectedModel);
         //

@@ -76,12 +76,13 @@
           <span class="valign">&nbsp;&nbsp;Preview</span>
         </div>
         <div class="preview-wrapper" style="margin-bottom:0;">
-
+          
           <!-- PROJECT "HUMAN" -->
           <div class="human hide-on-small-only" style="margin-right:{{ 20 }}px;">
             <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;"></i> -->
             <img src="assets/img/man.svg" aria-hidden="true" style="width:auto; height:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;" alt="Human">
           </div>
+          <!-- PROJECT "HUMAN" end -->
           <!-- Preview Table -->
           <div class="table-wrapper">
             <table class="preview">
@@ -98,7 +99,16 @@
           <div class="ruler-vertical">
             <div>
               <i class="small material-icons">keyboard_arrow_up</i>
-              <input type="text" value="{{ vm.calc_data.slider_vertical * 0.3864 | number:2 }}" class="input-vertical" maxlength="4" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+              <input
+                name="vertical-dimension"
+                ng-model="vm.calc_data.vertical_dimension"
+                ng-change="vm.getDimensions()"
+                type="text"
+                class="input-vertical"
+                maxlength="4"
+                max="100"
+                required>
+                {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
               <i class="small material-icons">keyboard_arrow_down</i>
             </div>
           </div>
@@ -107,7 +117,16 @@
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
-          <input type="text" value="{{ vm.calc_data.slider_horizontal * 0.3864 | number:2 }}" class="input-horizontal" maxlength="4" max="100"> {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+          <input
+            name="horizontal-dimension"
+            ng-model="vm.calc_data.horizontal_dimension"
+            ng-change="vm.getDimensions()"
+            type="text"
+            class="input-horizontal"
+            maxlength="4"
+            max="100"
+            required>
+            {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
           <i class="small material-icons">keyboard_arrow_right</i>
         </div>
       </div>

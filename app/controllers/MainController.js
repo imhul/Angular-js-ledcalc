@@ -43,7 +43,13 @@
             }
         };
 
+        vm.getDimensions = function() {
+            return vm.calc_data.vertical_dimension = (vm.calc_data.slider_vertical * 0.3864).toFixed(2),
+                   vm.calc_data.horizontal_dimension = (vm.calc_data.slider_horizontal * 0.3864).toFixed(2);
+        }
+
         vm.getDiagonal = function() {
+            vm.getDimensions();
             return vm.diagonal = Math.sqrt(
                 (Math.pow(
                     (vm.calc_data.slider_horizontal * 0.387), 2)) +
