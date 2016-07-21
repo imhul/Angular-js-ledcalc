@@ -99,7 +99,7 @@
             <div>
               <i class="small material-icons">keyboard_arrow_up</i>
               <!-- http://jsfiddle.net/c47bL3ko/ -->
-              <!-- <input
+              <input
                 name="vertical-dimension"
                 ng-model="vm.calc_data.vertical_dimension"
                 ng-keypress="filterInput($event)"
@@ -109,8 +109,8 @@
                 class="input-vertical"
                 min="0"
                 max="24"
-                required> -->
-                <input
+                required>
+                <!-- <input
                   name="vertical-dimension"
                   ng-model="vm.calc_data.vertical_dimension"
                   type="text"
@@ -118,7 +118,7 @@
                   class="input-vertical"
                   min="0"
                   max="24"
-                  disabled>
+                  disabled> -->
                 {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
               <i class="small material-icons">keyboard_arrow_down</i>
             </div>
@@ -128,7 +128,7 @@
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
-          <!-- <input
+          <input
             name="horizontal-dimension"
             ng-model="vm.calc_data.horizontal_dimension"
             ng-keypress="filterInput($event)"
@@ -138,8 +138,8 @@
             class="input-horizontal"
             min="0"
             max="24"
-            required> -->
-            <input
+            required>
+            <!-- <input
               name="horizontal-dimension"
               ng-model="vm.calc_data.horizontal_dimension"
               type="text"
@@ -147,7 +147,7 @@
               class="input-horizontal"
               min="0"
               max="24"
-              disabled>
+              disabled> -->
             {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
           <i class="small material-icons">keyboard_arrow_right</i>
         </div>

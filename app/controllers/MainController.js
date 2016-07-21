@@ -46,20 +46,18 @@
         vm.getDimensions = function() {
             vm.calc_data.vertical_dimension = (vm.calc_data.slider_vertical * 0.3864).toFixed(2);
             vm.calc_data.horizontal_dimension = (vm.calc_data.slider_horizontal * 0.3864).toFixed(2);
-            return;// vm.calc_data.vertical_dimension = (vm.calc_data.slider_vertical * 0.3864).toFixed(2),
-                   //vm.calc_data.horizontal_dimension = (vm.calc_data.slider_horizontal * 0.3864).toFixed(2);
+            return;
         }
 
-        // vm.filterInput = function($event) {
-        //
-        //     var k = $event.charCode || $event.keyCode;
-        //     console.log(k);
-        //     if (k === 44) {
-        //     	$event.preventDefault();
-        //       $event.stopPropagation();
-        //       return;
-        //     }
-        //   }
+        vm.filterInput = function($event) {
+            var k = $event.charCode || $event.keyCode;
+            console.log(k);
+            if (k === 44) {
+            	$event.preventDefault();
+              $event.stopPropagation();
+              return;
+            }
+          }
 
         vm.getDiagonal = function() {
             vm.getDimensions();
