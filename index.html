@@ -100,12 +100,13 @@
               <i class="small material-icons">keyboard_arrow_up</i>
               <!-- http://jsfiddle.net/c47bL3ko/ -->
               <input
+                ng-model-options="{ debounce: 500 }"
                 name="vertical-dimension"
+                ng-change="vm.getSliderSize()"
                 ng-model="vm.calc_data.vertical_dimension"
-                ng-keypress="filterInput($event)"
+                smart-float
                 type="number"
-                step="1"
-                ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                step="0.1"
                 class="input-vertical"
                 min="0"
                 max="24"
@@ -129,12 +130,13 @@
         <div class="ruler-horizontal valign-wrapper center">
           <i class="small material-icons">keyboard_arrow_left</i>
           <input
+            ng-model-options="{ debounce: 500 }"
+            ng-change="vm.getSliderSize()"
             name="horizontal-dimension"
             ng-model="vm.calc_data.horizontal_dimension"
-            ng-keypress="filterInput($event)"
+            smart-float
             type="number"
-            step="1"
-            ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+            step="0.1"
             class="input-horizontal"
             min="0"
             max="24"
@@ -321,6 +323,7 @@
   <script src="app/calculator/controls/controls.directive.js"></script>
   <script src="app/calculator/models/models.directive.js"></script>
   <script src="app/calculator/result/result.directive.js"></script>
+  <script src="app/calculator/directives/smart.float.directive.js"></script>
 
   <!-- Controllers -->
   <script src="app/controllers/MainController.js"></script>

@@ -7,8 +7,8 @@ angular.module('CalcApp').service('Calculator', function() {
         slider_vertical: 6,
         slider_horizontal: 10,
         viewing_distance: 20,
-        vertical_dimension: 2.32,
-        horizontal_dimension: 3.86
+        vertical_dimension: Number(2.32),
+        horizontal_dimension: Number(3.86)
     };
 
     this._selectedModel = null; // Начальное состояние, модель не выбрана

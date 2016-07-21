@@ -1,6 +1,6 @@
 (function(angular) {
 
-    angular.module('CalcApp').directive('controls', function(Calculator, appConfig) {
+    angular.module('CalcApp').directive('controls', function(Calculator, appConfig, $rootScope) {
 
         return {
             restict: 'EA',
@@ -21,7 +21,8 @@
                                 return 'Tiles horizontal: ' + value;
                             },
                             onEnd: function() {
-                                Calculator.data.slider_horizontal = arguments[1]
+                                Calculator.data.slider_horizontal = arguments[1];
+                                $rootScope.$broadcast('slider:move');
                             }
                         }
                     },
@@ -35,7 +36,8 @@
                                 return 'Tiles vertical: ' + value;
                             },
                             onEnd: function() {
-                                Calculator.data.slider_vertical = arguments[1]
+                                Calculator.data.slider_vertical = arguments[1];
+                                $rootScope.$broadcast('slider:move');
                             }
                         }
                     },

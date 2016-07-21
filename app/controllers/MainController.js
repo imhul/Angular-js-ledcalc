@@ -1,6 +1,6 @@
 (function(angular) {
 
-    angular.module('CalcApp').controller('MainController', function($scope, $timeout, Displays, Calculator) {
+    angular.module('CalcApp').controller('MainController', function($scope, $timeout, Displays, Calculator, $rootScope) {
 
         var vm = this;
 
@@ -43,24 +43,33 @@
             }
         };
 
+        $rootScope.$on('slider:move', function() {
+            vm.getDimensions();
+        });
+
         vm.getDimensions = function() {
             vm.calc_data.vertical_dimension = (vm.calc_data.slider_vertical * 0.3864).toFixed(2);
             vm.calc_data.horizontal_dimension = (vm.calc_data.slider_horizontal * 0.3864).toFixed(2);
-            return;
         }
+
+        vm.getSliderSize = function() {
+            vm.calc_data.slider_vertical = Math.floor(vm.calc_data.vertical_dimension / 0.3864);
+            vm.calc_data.slider_horizontal = Math.floor(vm.calc_data.horizontal_dimension / 0.3864);
+        }
+
+        // /^[0-9]+(\.[0-9]{1,2})?$/
 
         vm.filterInput = function($event) {
             var k = $event.charCode || $event.keyCode;
-            console.log(k);
+            //console.log(k);
             if (k === 44) {
-            	$event.preventDefault();
+              $event.preventDefault();
               $event.stopPropagation();
               return;
             }
           }
 
         vm.getDiagonal = function() {
-            vm.getDimensions();
             return vm.diagonal = Math.sqrt(
                 (Math.pow(
                     (vm.calc_data.slider_horizontal * 0.387), 2)) +
