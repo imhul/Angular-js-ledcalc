@@ -279,7 +279,7 @@ input[type=text]:disabled {
 .ruler-horizontal input {
     border-bottom: none;
     font-size: 1.5rem;
-    width: 50px;
+    width: 65px;
     margin: 0 0 5px 0;
 }
 .ruler-vertical input:focus, .ruler-horizontal input:focus {
@@ -294,12 +294,12 @@ input[type=text]:disabled {
     border-bottom: none;
     font-size: 1.5rem;
     margin: 0;
-    width: 50px;
+    width: 65px;
     margin-bottom: 6px;
 }
 .ruler-vertical div {
     display: table-caption;
-    width: 66px;
+    width: 81px;
 }
 rzslider {
     position: relative;

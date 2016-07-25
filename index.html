@@ -78,7 +78,6 @@
 
           <!-- PROJECT "HUMAN" -->
           <div class="human hide-on-small-only" style="margin-right:{{ 20 }}px;">
-            <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;"></i> -->
             <img src="assets/img/man.svg" aria-hidden="true" style="width:auto; height:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;" alt="Human">
           </div>
           <!-- PROJECT "HUMAN" end -->
@@ -97,59 +96,41 @@
           <!-- Vertical Ruler -->
           <div class="ruler-vertical">
             <div>
-              <i class="small material-icons">keyboard_arrow_up</i>
-              <!-- http://jsfiddle.net/c47bL3ko/ -->
+              <!-- <i class="small material-icons">keyboard_arrow_up</i> -->
               <input
+                ng-model-options="{ debounce: 500 }"
                 name="vertical-dimension"
+                ng-change="vm.getSliderSize()"
                 ng-model="vm.calc_data.vertical_dimension"
-                ng-keypress="filterInput($event)"
+                smart-float
                 type="number"
-                step="1"
-                ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                step="0.1"
                 class="input-vertical"
                 min="0"
                 max="24"
                 required>
-                <!-- <input
-                  name="vertical-dimension"
-                  ng-model="vm.calc_data.vertical_dimension"
-                  type="text"
-                  step="1"
-                  class="input-vertical"
-                  min="0"
-                  max="24"
-                  disabled> -->
                 {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
-              <i class="small material-icons">keyboard_arrow_down</i>
+              <!-- <i class="small material-icons">keyboard_arrow_down</i> -->
             </div>
           </div>
-
         </div>
         <!-- Horizontal Ruler -->
         <div class="ruler-horizontal valign-wrapper center">
-          <i class="small material-icons">keyboard_arrow_left</i>
+          <!-- <i class="small material-icons">keyboard_arrow_left</i> -->
           <input
+            ng-model-options="{ debounce: 500 }"
+            ng-change="vm.getSliderSize()"
             name="horizontal-dimension"
             ng-model="vm.calc_data.horizontal_dimension"
-            ng-keypress="filterInput($event)"
+            smart-float
             type="number"
-            step="1"
-            ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+            step="0.1"
             class="input-horizontal"
             min="0"
             max="24"
             required>
-            <!-- <input
-              name="horizontal-dimension"
-              ng-model="vm.calc_data.horizontal_dimension"
-              type="text"
-              step="1"
-              class="input-horizontal"
-              min="0"
-              max="24"
-              disabled> -->
             {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
-          <i class="small material-icons">keyboard_arrow_right</i>
+          <!-- <i class="small material-icons">keyboard_arrow_right</i> -->
         </div>
       </div>
     </div>
@@ -199,17 +180,17 @@
                 <div class="row">
                   <div class="col s12 m5">
                     <i class="material-icons prefix" style="float:left;">mode_edit</i>
-                    <input name="email" tabindex="2" type="email" placeholder="exemple@exemple.com" class="validate">
+                    <input name="email" tabindex="1" type="email" placeholder="exemple@exemple.com" class="validate">
                   </div>
                   <div class="col s12 m4 margin-top-5">
                     <br class="hide-on-med-and-up">
-                    <button tabindex="3" type="submit" class="waves-effect waves-light btn red lighten-1" onclick="Materialize.toast('Wait a few seconds', 4000)">
+                    <button tabindex="2" type="submit" class="waves-effect waves-light btn red lighten-1" onclick="Materialize.toast('Wait a few seconds', 4000)">
                       Send
                     </button>
                   </div>
                   <div class="col s12 m3 margin-top-5 hide-on-small-only">
                     <br class="hide-on-med-and-up">
-                    <a print-btn tabindex="1" class="waves-effect waves-light btn light-blue darken-1">Print</a>
+                    <a print-btn tabindex="3" class="waves-effect waves-light btn light-blue darken-1">Print</a>
                   </div>
                 </div>
               </div>
@@ -321,6 +302,7 @@
   <script src="app/calculator/controls/controls.directive.js"></script>
   <script src="app/calculator/models/models.directive.js"></script>
   <script src="app/calculator/result/result.directive.js"></script>
+  <script src="app/calculator/directives/smart.float.directive.js"></script>
 
   <!-- Controllers -->
   <script src="app/controllers/MainController.js"></script>

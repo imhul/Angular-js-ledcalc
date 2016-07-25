@@ -1,6 +1,6 @@
 (function(angular) {
 
-    angular.module('CalcApp').controller('MainController', function($scope, $timeout, Displays, Calculator) {
+    angular.module('CalcApp').controller('MainController', function($scope, $timeout, Displays, Calculator, $rootScope) {
 
         var vm = this;
 
@@ -12,21 +12,12 @@
         );
 
         vm.calc_data = Calculator.data;
-        vm.calcResult = Calculator.calculate();
 
-        vm.moduleSide = 0.387;
-        vm.moduleSquare = 0.15;
-        vm.humanHeight = Calculator.humanHeight;
-        vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
-        vm.surface = vm.moduleAmt * vm.moduleSquare;
-        vm.diagonal = Calculator.diagonal;
-        vm.tdSize = 50;
-
-        vm.getTdSize = function() {
-            if (vm.calc_data.slider_horizontal >= 10 || vm.calc_data.slider_vertical >= 11) {
-                return vm.tdSize + 1;
-            }
-        };
+        // vm.moduleSide = 0.387;
+        // vm.moduleSquare = 0.15;
+        // vm.humanHeight = Calculator.humanHeight;
+        // vm.moduleAmt = vm.calc_data.slider_horizontal * vm.calc_data.slider_vertical;
+        // vm.surface = vm.moduleAmt * vm.moduleSquare;
 
         // TODO Применить imperialFactorFt и imperialFactorLb к результатам
 
@@ -43,24 +34,36 @@
             }
         };
 
+        $rootScope.$on('slider:move', function() {
+            vm.getDimensions();
+        });
+
         vm.getDimensions = function() {
             vm.calc_data.vertical_dimension = (vm.calc_data.slider_vertical * 0.3864).toFixed(2);
             vm.calc_data.horizontal_dimension = (vm.calc_data.slider_horizontal * 0.3864).toFixed(2);
-            return;
         }
 
-        vm.filterInput = function($event) {
-            var k = $event.charCode || $event.keyCode;
-            console.log(k);
-            if (k === 44) {
-            	$event.preventDefault();
-              $event.stopPropagation();
-              return;
-            }
-          }
+        vm.getSliderSize = function() {
+          // if(vm.calc_data.vertical_dimension > 23.18 || vm.calc_data.horizontal_dimension > 23.18) {
+          //   return Materialize.toast('You enter a value greater than allowable!', 4000);
+          // }
+          vm.calc_data.slider_vertical = Math.floor(vm.calc_data.vertical_dimension / 0.3864);
+          vm.calc_data.slider_horizontal = Math.floor(vm.calc_data.horizontal_dimension / 0.3864);
+        }
+
+        // /^[0-9]+(\.[0-9]{1,2})?$/
+
+        // vm.filterInput = function($event) {
+        //     var k = $event.charCode || $event.keyCode;
+        //     //console.log(k);
+        //     if (k === 44) {
+        //       $event.preventDefault();
+        //       $event.stopPropagation();
+        //       return;
+        //     }
+        //   }
 
         vm.getDiagonal = function() {
-            vm.getDimensions();
             return vm.diagonal = Math.sqrt(
                 (Math.pow(
                     (vm.calc_data.slider_horizontal * 0.387), 2)) +
@@ -79,10 +82,7 @@
             }
         };
 
-
-
         vm.getRatio = function() {
-
             return vm.ratio =
                 Math.round(vm.calc_data.slider_horizontal / gcd(vm.calc_data.slider_horizontal, vm.calc_data.slider_vertical)) +
                 ":" +
