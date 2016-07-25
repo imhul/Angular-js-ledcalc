@@ -7,7 +7,7 @@
         })
         .run(function($location) {
             console.log('location: ', $location);
-            console.log('@ calculator is running!');
+            // console.log('@ calculator is running!');
         });
 
 }(window.angular))
