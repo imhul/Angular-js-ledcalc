@@ -1,12 +1,13 @@
 (function(angular){
 
     angular
-        .module('CalcApp', ['rzModule'])
+        .module('CalcApp', ['rzModule', 'AngularPrint'])
         .constant('appConfig', {
-            'basePath': '/projects/calc'//'/projects/calc'
+            'basePath': '/projects/calc'
         })
-        .run(function() {
-            console.log('@ calculator is running');
+        .run(function($location) {
+            console.log('location: ', $location);
+            console.log('@ calculator is running!');
         });
 
 }(window.angular))

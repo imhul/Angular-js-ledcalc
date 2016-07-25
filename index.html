@@ -2,111 +2,337 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-    <title>LED Calc</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="assets/css/materialize.min.css" rel="stylesheet" />
-    <link href="assets/css/theme.css" rel="stylesheet" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <title>LED Calculator</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/css/materialize.min.css" rel="stylesheet" />
+  <link href="assets/css/theme.css" rel="stylesheet" />
 
-    <!-- Include the core AngularJS library -->
-    <script src="assets/js/angular.min.js"></script>
+  <!-- Include the core AngularJS library -->
+  <script src="assets/js/angular.min.js"></script>
 
-    <!-- Include accessory library -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/materialize.min.js"></script>
-    <script src="assets/js/slider.min.js"></script>
+  <!-- Include accessory library -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/materialize.min.js"></script>
+  <script src="assets/js/slider.min.js"></script>
+  <script src="assets/js/print.js"></script>
 </head>
 
 <!-- TODO
 
- - прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant)
- - разобраться в классах в javascript, понять основы объектно-ориентированного программирования,
- - цель: уметь писать классы с методами и вызывать их -->
+1) В ПРОЦЕССЕ: Прочитать про инъкцию зависимостей, уловить как использовать в одних ангуляровских файлах другие (service, factory, constant)
+  и разобраться в классах в javascript, понять основы объектно-ориентированного программирования с целью уметь писать классы с методами и вызывать их
+2) ВРЕМЕННО ОТМЕНЕНО: Проверять, с какой страницы зашли(ru, en, de), с целью добавления такого же суффикса к исходящим ссылкам
+3) ВРЕМЕННО ОТМЕНЕНО: Применить функции imperialFactor
+4) ВРЕМЕННО ОТМЕНЕНО: Допилить инпуты в PREVIEW
+5) В ПРОЦЕССЕ: Допилить реальное количество ячеек в таблице
 
+ -->
 
 <body ng-app="CalcApp">
 
-    <nav>
-        <div class="nav-wrapper">
-            <a href="http://ekta.ua/" class="brand-logo left">
-                <img class="logo" src="assets/img/logo.png" width="142">
-            </a>
-            <h2 class="brand-logo center">LED Calc</h2>
-            <div class="brand-logo right buttons">
-                <a class="waves-effect waves-light btn">Print</a>
-                <a href="http://ekta.com.ua/en/contacts" class="waves-effect waves-light btn">Get a quote</a>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="http://ekta.ua/" class="brand-logo left hide-on-small-only">
+        <img class="logo" src="assets/img/logo.png" width="142">
+      </a>
+      <h2 class="brand-logo center hide-on-small-only">LED CALCULATOR</h2>
+      <div class="row hide-on-med-and-up">
+        <a href="http://ekta.ua/" class="center col s12">
+          <img class="logo" src="assets/img/logo.png" width="142" style="margin-left:0;">
+        </a>
+        <h4 class="center col s12">LED CALCULATOR</h4>
+      </div>
+    </div>
+  </nav>
+
+  <!-- main -->
+
+  <main class="container row" ng-controller="MainController as vm" ng-cloak>
+
+    <!-- Print section -->
+    <div print-section>
+      <div class="container print-fix">
+        <div class="row">
+          <div class="col s4">
+            <img src="assets/img/logo.png" width="142" style="margin:25px;">
+          </div>
+          <div class="col s4 center">
+            <h4>Result</h4>
+          </div>
+        </div>
+        <result></result>
+      </div>
+    </div>
+
+    <!-- Table Preview -->
+
+    <div class="col s12 l6 top-block" print-remove>
+      <div class="card top-block-left hoverable z-depth-1">
+        <div class="card-header card-content valign-wrapper">
+          <i class="valign material-icons">remove_red_eye</i>
+          <span class="valign">&nbsp;&nbsp;Preview</span>
+        </div>
+        <div class="preview-wrapper" style="margin-bottom:0;">
+
+          <!-- PROJECT "HUMAN" -->
+          <div class="human hide-on-small-only" style="margin-right:{{ 20 }}px;">
+            <!-- <i class="fa fa-male" aria-hidden="true" style="font-size:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;"></i> -->
+            <img src="assets/img/man.svg" aria-hidden="true" style="width:auto; height:{{ (50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal)) * 4.7 }}px;" alt="Human">
+          </div>
+          <!-- PROJECT "HUMAN" end -->
+          <!-- Preview Table -->
+          <div class="table-wrapper">
+            <table class="preview">
+              <tbody>
+                <tr ng-repeat="row in vm.tableConstructor(vm.calc_data.slider_vertical) track by $index">
+                  <td ng-repeat="col in vm.tableConstructor(vm.calc_data.slider_horizontal) track by $index">
+                    <div style="height:{{ 50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal) }}px; width:{{ 50 - (vm.calc_data.slider_vertical + vm.calc_data.slider_horizontal) }}px;"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Vertical Ruler -->
+          <div class="ruler-vertical">
+            <div>
+              <i class="small material-icons">keyboard_arrow_up</i>
+              <!-- http://jsfiddle.net/c47bL3ko/ -->
+              <input
+                ng-model-options="{ debounce: 500 }"
+                name="vertical-dimension"
+                ng-change="vm.getSliderSize()"
+                ng-model="vm.calc_data.vertical_dimension"
+                smart-float
+                type="number"
+                step="0.1"
+                class="input-vertical"
+                min="0"
+                max="24"
+                required>
+                <!-- <input
+                  name="vertical-dimension"
+                  ng-model="vm.calc_data.vertical_dimension"
+                  type="text"
+                  step="1"
+                  class="input-vertical"
+                  min="0"
+                  max="24"
+                  disabled> -->
+                {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+              <i class="small material-icons">keyboard_arrow_down</i>
             </div>
+          </div>
+
         </div>
-    </nav>
+        <!-- Horizontal Ruler -->
+        <div class="ruler-horizontal valign-wrapper center">
+          <i class="small material-icons">keyboard_arrow_left</i>
+          <input
+            ng-model-options="{ debounce: 500 }"
+            ng-change="vm.getSliderSize()"
+            name="horizontal-dimension"
+            ng-model="vm.calc_data.horizontal_dimension"
+            smart-float
+            type="number"
+            step="0.1"
+            class="input-horizontal"
+            min="0"
+            max="24"
+            required>
+            <!-- <input
+              name="horizontal-dimension"
+              ng-model="vm.calc_data.horizontal_dimension"
+              type="text"
+              step="1"
+              class="input-horizontal"
+              min="0"
+              max="24"
+              disabled> -->
+            {{ vm.calc_data.is_imperial ? 'ft' : 'm' }}
+          <i class="small material-icons">keyboard_arrow_right</i>
+        </div>
+      </div>
+    </div>
 
-    <main class="container row" ng-controller="MainController as vm">
-        <!-- Preview -->
+    <!-- Table Preview end -->
 
-        <div class="col s12 card-panel hoverable z-depth-1">
-            <i class="medium material-icons">remove_red_eye</i>
-            <preview></preview>
-            
+    <!-- <div class="col s12 hide-on-large-only" style="height: 1.5rem;"></div> -->
+
+    <!-- front side - Tune begin -->
+
+    <div class="col s12 l6" print-remove>
+      <div class="card top-block-right hoverable">
+
+        <div class="card-header card-content valign-wrapper" ng-click="vm.renderSlider()">
+          <i class="valign material-icons">tune</i>
+          <span class="valign">&nbsp;&nbsp;Tune</span>
+        </div>
+        <div class="card-content">
+          <controls></controls>
+
+          <!-- activator -->
+          <div class="valign-wrapper">
+            <div class="container valign center-align">
+              <a class="waves-effect waves-light btn-large activator light-blue darken-1">Get result</a>
+            </div>
+          </div>
+
+          <!-- front side - Tune end -->
+
         </div>
 
-        <!-- Tune -->
+        <!-- back side - Result -->
 
-        <div class="col s12 l4">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header" ng-click="vm.renderSlider()"><i class="medium material-icons">tune</i>Tune</div>
-                    <div class="collapsible-body">
-                        <controls></controls>
-                    </div>
-                </li>
-            </ul>
+        <div class="card-reveal">
+          <span class="card-title">
+            <i class="material-icons right">close</i>
+          </span>
+          <div class="card-header card-content valign-wrapper">
+            <i class="valign material-icons">widgets</i>
+            <span class="valign">&nbsp;&nbsp;Result</span>
+          </div>
+          <!-- Mailto -->
+          <form class="submitter" name="submitter" method="post" enctype="text/plain" action="mailto:office@ekta.ua?subject=Led-Calculator-Request">
+            <result></result>
+            <div class="valign-wrapper">
+              <div class="container valign center-align">
+                <div class="row">
+                  <div class="col s12 m5">
+                    <i class="material-icons prefix" style="float:left;">mode_edit</i>
+                    <input name="email" tabindex="2" type="email" placeholder="exemple@exemple.com" class="validate">
+                  </div>
+                  <div class="col s12 m4 margin-top-5">
+                    <br class="hide-on-med-and-up">
+                    <button tabindex="3" type="submit" class="waves-effect waves-light btn red lighten-1" onclick="Materialize.toast('Wait a few seconds', 4000)">
+                      Send
+                    </button>
+                  </div>
+                  <div class="col s12 m3 margin-top-5 hide-on-small-only">
+                    <br class="hide-on-med-and-up">
+                    <a print-btn tabindex="1" class="waves-effect waves-light btn light-blue darken-1">Print</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <!-- Select model -->
+      </div>
 
-        <div class="col s12 l4">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header"><i class="medium material-icons">extension</i>{{ vm.calc_data.is_rental ? 'Rental' : 'Fixed' }} models</div>
-                    <div class="collapsible-body scrollable-box">
-                        <article class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays" ng-click="addSuccess = 'light-green lighten-3'" ng-class="addSuccess">
-                            <models></models>
-                        </article>
-                    </div>
-                </li>
-            </ul>
+      <!-- back side - Result end -->
+
+    </div>
+
+    <!--Select model begin -->
+
+    <div class="col s12" print-remove>
+      <div class="card hoverable">
+        <div class="card-header card-content valign-wrapper">
+          <i class="valign material-icons">extension</i>
+          <span class="valign">&nbsp;&nbsp;Models</span>
         </div>
-        <!-- Result -->
+        <div class="scrollable-box center">
+          <article style="cursor:pointer;" class="card-panel hoverable z-depth-1" ng-repeat="display in vm.displays track by $index" ng-click="vm.byModel($index)" ng-class="{'light-blue darken-1 white-text': $index === vm.selectedIndex}">
+            <models></models>
+          </article>
+        </div>
+      </div>
+    </div>
 
-        <div class="col s12 l4">
-            <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header"><i class="medium material-icons">apps</i>Result</div>
-                    <div class="collapsible-body">
-                        <result></result>
-                    </div>
-                </li>
-            </ul>
+    <!-- Select model end -->
+
+  </main>
+
+  <!-- main end, footer begin -->
+
+  <footer class="page-footer blue-grey darken-3" print-remove ng-cloak>
+    <div class="container">
+      <div class="row">
+
+        <div class="col s12">
+          <h1 class="white-text">AHEAD OF THE FUTURE</h1>
         </div>
 
-    </main>
+        <div class="col l4 m6 s12">
+          <h5 class="white-text">About</h5>
+          <ul>
+            <li><a href="/en/history" title="hystory of EKTA company">history</a></li>
+            <li><a href="/en/technologies" title="technologies of EKTA company">technologies</a></li>
+            <li><a href="/en/partners" title="EKTA company partners">partners</a></li>
+            <li><a href="/en/contacts" title="EKTA company contacts">contacts</a></li>
+          </ul>
+          <h5 class="white-text">EMS</h5>
+          <ul>
+            <li><a href="/en/contract-manufacturing" title="Capacities EKTA">Capacities</a></li>
+          </ul>
+        </div>
 
-    <footer></footer>
+        <div class="col l4 m6 s12">
+          <h5 class="white-text">Products</h5>
+          <ul>
+            <li><a href="/en/products/led-controllers" title="led-controllers">LED display controllers</a></li>
+            <li><a href="/en/products/led-panels" title="led panels">LED displays</a></li>
+            <li><a href="/en/products/led-panels/wowfloor" title="LED floors">LED floor</a></li>
+            <li><a href="/en/products/led-lighting" title="LED lighting">LED lighting</a></li>
+            <li><a href="/en/products/systems-for-traffic-information" title="systems for traffic information">LED traffic information systems</a></li>
+          </ul>
+        </div>
 
-    <!-- Modules -->
-    <script src="app/app.js"></script>
-    <script src="app/calculator/calculator.service.js"></script>
-    <script src="app/calculator/preview/preview.directive.js"></script>
-    <script src="app/calculator/controls/controls.directive.js"></script>
-    <script src="app/calculator/models/models.directive.js"></script>
-    <script src="app/calculator/result/result.directive.js"></script>
+        <div class="col l4 m6 s12">
+          <h5 class="white-text">Support</h5>
+          <ul>
+            <li><a href="/en/service" title="EKTA service">service</a></li>
+            <li><a href="/en/download" title="EKTA catalogs and presentations">downloads</a></li>
+          </ul>
+          <h5 class="white-text">Read</h5>
+          <ul>
+            <li><a href="/en/blog" title="EKTA blog">blog</a></li>
+            <li><a href="/en/news" title="EKTA news">news</a></li>
+          </ul>
+        </div>
 
-    <!-- Controllers -->
-    <script src="app/controllers/MainController.js"></script>
-    <!-- <script src="app/controllers/PhotoController.js"></script> -->
 
-    <!-- Services -->
-    <script src="app/services/displays.js"></script>
+        <!-- <div class="fixed-action-btn horizontal right-align click-to-toggle" style="position: relative; display: block; bottom: 50px; right: 24px;">
+                    <a class="btn-floating btn-large red lighten-1">
+                        <i class="material-icons">person_add</i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating waves-effect waves-light light-blue darken-1" rel="nofollow" href="https://www.youtube.com/user/EKTALED" title="EKTA YouTube channel"><i class="material-icons">play_circle_filled</i></a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue darken-1" rel="nofollow" href="https://plus.google.com/+EktaledCompany/" title="EKTA Google Plus page"><i>g+</a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue darken-1" rel="nofollow" href="https://www.linkedin.com/company/ekta" title="EKTA Linkedin page"><i>in</a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue darken-1" rel="nofollow" href="https://twitter.com/ekta_led" title="EKTA Twitter page"><i>tw</a></li>
+                        <li><a class="btn-floating waves-effect waves-light light-blue darken-1" rel="nofollow" href="https://www.facebook.com/EKTACOMPANY" title="EKTA Facebook page"><i>fb</a></li>
+                    </ul>
+                </div> -->
+
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        COPYRIGHT © 2016 EKTA. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <!-- Modules -->
+  <script src="app/app.js"></script>
+  <script src="app/calculator/calculator.service.js"></script>
+  <script src="app/calculator/controls/controls.directive.js"></script>
+  <script src="app/calculator/models/models.directive.js"></script>
+  <script src="app/calculator/result/result.directive.js"></script>
+  <script src="app/calculator/directives/smart.float.directive.js"></script>
+
+  <!-- Controllers -->
+  <script src="app/controllers/MainController.js"></script>
+
+  <!-- Services -->
+  <script src="app/services/displays.js"></script>
+
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/3dbac119a5.js"></script>
 
 </body>
 
