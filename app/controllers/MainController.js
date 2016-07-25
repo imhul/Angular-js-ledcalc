@@ -46,7 +46,7 @@
         vm.getSliderSize = function() {
           // if(vm.calc_data.vertical_dimension > 23.18 || vm.calc_data.horizontal_dimension > 23.18) {
           //   return Materialize.toast('You enter a value greater than allowable!', 4000);
-          // }
+          // } 
           vm.calc_data.slider_vertical = Math.floor(vm.calc_data.vertical_dimension / 0.3864);
           vm.calc_data.slider_horizontal = Math.floor(vm.calc_data.horizontal_dimension / 0.3864);
         }
